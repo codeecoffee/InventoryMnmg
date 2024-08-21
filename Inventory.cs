@@ -4,10 +4,11 @@ using System.Linq;
 
 public class Inventory
 {
-    public BindingList<Product> Products { get; set; } = new BindingList<Product>();
-    public BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
+    public static BindingList<Product> Products { get; set; } = new BindingList<Product>();
+    public static BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
 
     private static int partIdCounter = 1;
+    private static int productIdCounter = 1;
     public static int GeneratePartId()
     { 
         return partIdCounter++; 
@@ -38,6 +39,10 @@ public class Inventory
             Products[index] = updatedProduct;
         }
     }
+    public static BindingList<Product> GetAllProducts()
+    {
+        return Products;
+    }
 
     public void AddPart(Part part)
     {
@@ -60,5 +65,9 @@ public class Inventory
             AllParts[index] = updatedPart;
         }
 
+    }
+    public static BindingList<Part> GetAllParts()
+    { 
+        return AllParts;
     }
 }

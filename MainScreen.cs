@@ -5,8 +5,13 @@ namespace InventoryMgmt
         public MainScreen()
         {
             InitializeComponent();
+            this.Load += MainScreen_Load;
         }
 
+        private void MainScreen_Load(object sender, EventArgs e) 
+        {
+            PartsGridView.DataSource = Inventory.GetAllParts();
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -31,6 +36,22 @@ namespace InventoryMgmt
         {
             AddPartForm addPartForm = new AddPartForm();
             addPartForm.ShowDialog();
+        }
+
+        private void ExitBtt_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
+        private void PartsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void outsourcedPartBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

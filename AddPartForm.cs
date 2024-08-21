@@ -12,9 +12,19 @@ namespace InventoryMgmt
 {
     public partial class AddPartForm : Form
     {
+        private int newPartId;
+
         public AddPartForm()
         {
             InitializeComponent();
+            this.Load += AddPartForm_Load;
+        }
+
+        private void AddPartForm_Load(object sender, EventArgs e)
+        { 
+            newPartId = Inventory.GeneratePartId();
+            PartId.Text = newPartId.ToString();
+
         }
 
         private void PartCancel_Click(object sender, EventArgs e)
@@ -28,7 +38,6 @@ namespace InventoryMgmt
 
         private void PartSave_Click(object sender, EventArgs e)
         {
-            int newPartId = Inventory.GeneratePartId();
 
             string name = PartNameInput.Text;
             int inventory = int.Parse(PartInventoryInput.Text); //instock
@@ -69,14 +78,14 @@ namespace InventoryMgmt
                 MessageBox.Show("Min value cannot be greater than Max value");
                 return;
             }
-            if (inventory < min || inventory > max)
-            {
-                MessageBox.Show("Inventory must be between Min and Max values.");
-                return;
-            }
+            //if (min < inventory || max > inventory)
+            //{
+            //    MessageBox.Show("Inventory must be between Min and Max values.");
+            //    return;
+            //}
 
             Part newPart;
-
+            Inventory inventoryObj = new Inventory();
             if (PartInhouse.Checked)
             {
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
@@ -93,13 +102,14 @@ namespace InventoryMgmt
             {
                 string companyName = PartMachineIdOrCompanyInput.Text;
                 newPart = new OutsourcedPart(newPartId, name, price, inventory, min, max, companyName);
+
             }
             else
             {
                 MessageBox.Show("Please select either In-house or Outsourced.");
                 return;
             }
-            //Inventory.AddPart(newPart);
+            inventoryObj.AddPart(newPart);
             this.Close();
         }
         private void PartInhouse_CheckedChanged(object sender, EventArgs e)
