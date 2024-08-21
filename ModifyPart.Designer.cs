@@ -59,21 +59,22 @@
             // 
             PartSave.BackColor = Color.DarkSeaGreen;
             PartSave.Location = new Point(491, 27);
-            PartSave.Margin = new Padding(2, 2, 2, 2);
+            PartSave.Margin = new Padding(2);
             PartSave.Name = "PartSave";
             PartSave.Size = new Size(60, 25);
             PartSave.TabIndex = 0;
             PartSave.Text = "Save";
             PartSave.UseVisualStyleBackColor = false;
+            PartSave.Click += PartSave_Click_1;
             // 
             // ProductsBttBox
             // 
             ProductsBttBox.Controls.Add(PartCancel);
             ProductsBttBox.Controls.Add(PartSave);
             ProductsBttBox.Location = new Point(2, 382);
-            ProductsBttBox.Margin = new Padding(2, 2, 2, 2);
+            ProductsBttBox.Margin = new Padding(2);
             ProductsBttBox.Name = "ProductsBttBox";
-            ProductsBttBox.Padding = new Padding(2, 2, 2, 2);
+            ProductsBttBox.Padding = new Padding(2);
             ProductsBttBox.Size = new Size(1224, 65);
             ProductsBttBox.TabIndex = 3;
             ProductsBttBox.TabStop = false;
@@ -82,7 +83,7 @@
             // 
             PartCancel.BackColor = Color.IndianRed;
             PartCancel.Location = new Point(760, 27);
-            PartCancel.Margin = new Padding(2, 2, 2, 2);
+            PartCancel.Margin = new Padding(2);
             PartCancel.Name = "PartCancel";
             PartCancel.Size = new Size(60, 25);
             PartCancel.TabIndex = 1;

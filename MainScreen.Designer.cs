@@ -6,7 +6,6 @@
         ///  Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         ///  Clean up any resources being used.
         /// </summary>
@@ -35,6 +34,12 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             PartsBox = new GroupBox();
             PartsGridView = new DataGridView();
+            partIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             outsourcedPartBindingSource = new BindingSource(components);
             PartsSearchInput = new TextBox();
             PartsSearchBtt = new Button();
@@ -54,12 +59,6 @@
             groupBox1 = new GroupBox();
             ExitBtt = new Button();
             inHousePartBindingSource = new BindingSource(components);
-            partIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             PartsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PartsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).BeginInit();
@@ -109,7 +108,8 @@
             PartsGridView.AllowUserToAddRows = false;
             PartsGridView.AllowUserToDeleteRows = false;
             PartsGridView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PartsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             PartsGridView.AutoGenerateColumns = false;
             PartsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -123,7 +123,7 @@
             PartsGridView.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -132,6 +132,64 @@
             PartsGridView.Size = new Size(599, 360);
             PartsGridView.TabIndex = 3;
             PartsGridView.CellContentClick += PartsGridView_CellContentClick;
+            // 
+            // partIDDataGridViewTextBoxColumn
+            // 
+            partIDDataGridViewTextBoxColumn.DataPropertyName = "PartID";
+            partIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            partIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
+            partIDDataGridViewTextBoxColumn.ReadOnly = true;
+            partIDDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            nameDataGridViewTextBoxColumn.Width = 230;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.FillWeight = 75F;
+            priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.ReadOnly = true;
+            priceDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // inStockDataGridViewTextBoxColumn
+            // 
+            inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
+            inStockDataGridViewTextBoxColumn.FillWeight = 80F;
+            inStockDataGridViewTextBoxColumn.HeaderText = "InStock";
+            inStockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            inStockDataGridViewTextBoxColumn.ReadOnly = true;
+            inStockDataGridViewTextBoxColumn.Width = 85;
+            // 
+            // minDataGridViewTextBoxColumn
+            // 
+            minDataGridViewTextBoxColumn.DataPropertyName = "Min";
+            minDataGridViewTextBoxColumn.FillWeight = 50F;
+            minDataGridViewTextBoxColumn.HeaderText = "Min";
+            minDataGridViewTextBoxColumn.MinimumWidth = 6;
+            minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
+            minDataGridViewTextBoxColumn.ReadOnly = true;
+            minDataGridViewTextBoxColumn.Width = 55;
+            // 
+            // maxDataGridViewTextBoxColumn
+            // 
+            maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
+            maxDataGridViewTextBoxColumn.FillWeight = 50F;
+            maxDataGridViewTextBoxColumn.HeaderText = "Max";
+            maxDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
+            maxDataGridViewTextBoxColumn.ReadOnly = true;
+            maxDataGridViewTextBoxColumn.Width = 55;
             // 
             // outsourcedPartBindingSource
             // 
@@ -232,6 +290,7 @@
             PartModify.TabIndex = 1;
             PartModify.Text = "Modify";
             PartModify.UseVisualStyleBackColor = true;
+            PartModify.Click += PartModify_Click;
             // 
             // PartAdd
             // 
@@ -335,64 +394,6 @@
             inHousePartBindingSource.DataSource = typeof(InHousePart);
             inHousePartBindingSource.Sort = "ID";
             // 
-            // partIDDataGridViewTextBoxColumn
-            // 
-            partIDDataGridViewTextBoxColumn.DataPropertyName = "PartID";
-            partIDDataGridViewTextBoxColumn.HeaderText = "ID";
-            partIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
-            partIDDataGridViewTextBoxColumn.ReadOnly = true;
-            partIDDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
-            nameDataGridViewTextBoxColumn.Width = 230;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            priceDataGridViewTextBoxColumn.FillWeight = 75F;
-            priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            priceDataGridViewTextBoxColumn.ReadOnly = true;
-            priceDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // inStockDataGridViewTextBoxColumn
-            // 
-            inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
-            inStockDataGridViewTextBoxColumn.FillWeight = 80F;
-            inStockDataGridViewTextBoxColumn.HeaderText = "InStock";
-            inStockDataGridViewTextBoxColumn.MinimumWidth = 6;
-            inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
-            inStockDataGridViewTextBoxColumn.ReadOnly = true;
-            inStockDataGridViewTextBoxColumn.Width = 85;
-            // 
-            // minDataGridViewTextBoxColumn
-            // 
-            minDataGridViewTextBoxColumn.DataPropertyName = "Min";
-            minDataGridViewTextBoxColumn.FillWeight = 50F;
-            minDataGridViewTextBoxColumn.HeaderText = "Min";
-            minDataGridViewTextBoxColumn.MinimumWidth = 6;
-            minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            minDataGridViewTextBoxColumn.ReadOnly = true;
-            minDataGridViewTextBoxColumn.Width = 55;
-            // 
-            // maxDataGridViewTextBoxColumn
-            // 
-            maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
-            maxDataGridViewTextBoxColumn.FillWeight = 50F;
-            maxDataGridViewTextBoxColumn.HeaderText = "Max";
-            maxDataGridViewTextBoxColumn.MinimumWidth = 6;
-            maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
-            maxDataGridViewTextBoxColumn.ReadOnly = true;
-            maxDataGridViewTextBoxColumn.Width = 55;
-            // 
             // MainScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -415,7 +416,7 @@
             ProductsBttBox.ResumeLayout(false);
             MainScreenPanel.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
+            //((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

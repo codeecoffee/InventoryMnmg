@@ -13,7 +13,7 @@ namespace InventoryMgmt
     public partial class AddPartForm : Form
     {
         private int newPartId;
-
+        
         public AddPartForm()
         {
             InitializeComponent();
@@ -84,8 +84,8 @@ namespace InventoryMgmt
             //    return;
             //}
 
-            Part newPart;
-            Inventory inventoryObj = new Inventory();
+            Part? newPart = null;
+
             if (PartInhouse.Checked)
             {
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
@@ -94,9 +94,7 @@ namespace InventoryMgmt
                     MessageBox.Show("Please enter a valid Machine Id");
                     return;
                 }
-
                 newPart = new InHousePart(newPartId, name, price, inventory, min, max, machineId);
-
             }
             else if (PartOutsourced.Checked)
             {
@@ -109,8 +107,11 @@ namespace InventoryMgmt
                 MessageBox.Show("Please select either In-house or Outsourced.");
                 return;
             }
-            inventoryObj.AddPart(newPart);
-            this.Close();
+            if (newPart != null) 
+            { 
+                Inventory.Instance.AddPart(newPart);
+                this.Close();
+            }
         }
         private void PartInhouse_CheckedChanged(object sender, EventArgs e)
         {
@@ -122,9 +123,6 @@ namespace InventoryMgmt
             PartMachineOrCompanyLabel.Text = "Company Name";
         }
 
-        private void SpacerPanel_Panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
     }
 }

@@ -8,7 +8,7 @@ namespace InventoryMgmt
             this.Load += MainScreen_Load;
         }
 
-        private void MainScreen_Load(object sender, EventArgs e) 
+        private void MainScreen_Load(object sender, EventArgs e)
         {
             PartsGridView.DataSource = Inventory.GetAllParts();
         }
@@ -36,6 +36,7 @@ namespace InventoryMgmt
         {
             AddPartForm addPartForm = new AddPartForm();
             addPartForm.ShowDialog();
+            PartsGridView.Refresh();
         }
 
         private void ExitBtt_Click(object sender, EventArgs e)
@@ -52,6 +53,22 @@ namespace InventoryMgmt
         private void outsourcedPartBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void PartModify_Click(object sender, EventArgs e)
+        {
+            if (PartsGridView.SelectedRows.Count > 0)
+            {
+                Part selectedPart = (Part) PartsGridView.SelectedRows[0].DataBoundItem;
+                ModifyPart modifyPartForm = new ModifyPart(selectedPart);
+                modifyPartForm.ShowDialog();
+
+                PartsGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Please select a part to modify");
+            }
         }
     }
 }

@@ -4,6 +4,10 @@ using System.Linq;
 
 public class Inventory
 {
+    private static Inventory _instance = new Inventory();
+    private Inventory() { }
+    public static Inventory Instance
+    { get { return _instance; } }
     public static BindingList<Product> Products { get; set; } = new BindingList<Product>();
     public static BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
 
