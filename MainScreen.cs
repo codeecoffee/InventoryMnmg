@@ -59,7 +59,7 @@ namespace InventoryMgmt
         {
             if (PartsGridView.SelectedRows.Count > 0)
             {
-                Part selectedPart = (Part) PartsGridView.SelectedRows[0].DataBoundItem;
+                Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
                 ModifyPart modifyPartForm = new ModifyPart(selectedPart);
                 modifyPartForm.ShowDialog();
 
@@ -69,6 +69,12 @@ namespace InventoryMgmt
             {
                 MessageBox.Show("Please select a part to modify");
             }
+        }
+
+        private void PartDelete_Click(object sender, EventArgs e)
+        {
+           Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
+           Inventory.Instance.DeletePart(selectedPart);
         }
     }
 }

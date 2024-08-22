@@ -13,6 +13,7 @@ public class Inventory
 
     private static int partIdCounter = 1;
     private static int productIdCounter = 1;
+
     public static int GeneratePartId()
     { 
         return partIdCounter++; 

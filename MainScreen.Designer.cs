@@ -77,7 +77,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(420, 37);
+            label2.Size = new Size(618, 54);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             label2.Click += label2_Click;
@@ -129,6 +129,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            PartsGridView.RowHeadersWidth = 62;
             PartsGridView.Size = new Size(599, 360);
             PartsGridView.TabIndex = 3;
             PartsGridView.CellContentClick += PartsGridView_CellContentClick;
@@ -200,7 +201,7 @@
             // 
             PartsSearchInput.Location = new Point(372, 42);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(205, 36);
+            PartsSearchInput.Size = new Size(205, 51);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -232,7 +233,7 @@
             // 
             ProductsSearchInput.Location = new Point(567, 42);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 36);
+            ProductsSearchInput.Size = new Size(205, 51);
             ProductsSearchInput.TabIndex = 4;
             // 
             // dataGridView2
@@ -279,6 +280,7 @@
             PartDelete.TabIndex = 2;
             PartDelete.Text = "Delete";
             PartDelete.UseVisualStyleBackColor = true;
+            PartDelete.Click += PartDelete_Click;
             // 
             // PartModify
             // 
@@ -396,7 +398,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);
@@ -416,7 +418,7 @@
             ProductsBttBox.ResumeLayout(false);
             MainScreenPanel.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            //((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
+          //  ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -65,7 +65,6 @@
             PartSave.TabIndex = 0;
             PartSave.Text = "Save";
             PartSave.UseVisualStyleBackColor = false;
-            PartSave.Click += PartSave_Click_1;
             // 
             // ProductsBttBox
             // 
