@@ -32,6 +32,9 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             PartsBox = new GroupBox();
@@ -79,7 +82,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(420, 37);
+            label2.Size = new Size(519, 46);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             // 
@@ -110,7 +113,7 @@
             PartsGridView.AllowUserToDeleteRows = false;
             PartsGridView.AllowUserToOrderColumns = true;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PartsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             PartsGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -126,7 +129,7 @@
             PartsGridView.DataSource = outsourcedPartBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
@@ -140,7 +143,7 @@
             PartsGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
@@ -218,7 +221,7 @@
             // 
             PartsSearchInput.Location = new Point(372, 42);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(205, 36);
+            PartsSearchInput.Size = new Size(205, 43);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -249,14 +252,38 @@
             // 
             ProductsSearchInput.Location = new Point(567, 42);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 36);
+            ProductsSearchInput.Size = new Size(205, 43);
             ProductsSearchInput.TabIndex = 4;
             // 
             // ProductsGridView
             // 
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            ProductsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             ProductsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            ProductsGridView.DefaultCellStyle = dataGridViewCellStyle6;
             ProductsGridView.Location = new Point(13, 94);
             ProductsGridView.Name = "ProductsGridView";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            ProductsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             ProductsGridView.RowHeadersWidth = 51;
             ProductsGridView.Size = new Size(762, 354);
             ProductsGridView.TabIndex = 1;
@@ -414,7 +441,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);
@@ -434,7 +461,7 @@
             ProductsBttBox.ResumeLayout(false);
             MainScreenPanel.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-          //  ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

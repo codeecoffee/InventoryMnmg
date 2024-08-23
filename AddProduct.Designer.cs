@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             PartSave = new Button();
             ProductsBttBox = new GroupBox();
             PartCancel = new Button();
@@ -76,10 +77,10 @@
             // PartSave
             // 
             PartSave.BackColor = Color.DarkSeaGreen;
-            PartSave.Location = new Point(491, 27);
-            PartSave.Margin = new Padding(2, 2, 2, 2);
+            PartSave.Location = new Point(561, 36);
+            PartSave.Margin = new Padding(2, 3, 2, 3);
             PartSave.Name = "PartSave";
-            PartSave.Size = new Size(60, 25);
+            PartSave.Size = new Size(69, 33);
             PartSave.TabIndex = 0;
             PartSave.Text = "Save";
             PartSave.UseVisualStyleBackColor = false;
@@ -88,21 +89,21 @@
             // 
             ProductsBttBox.Controls.Add(PartCancel);
             ProductsBttBox.Controls.Add(PartSave);
-            ProductsBttBox.Location = new Point(2, 382);
-            ProductsBttBox.Margin = new Padding(2, 2, 2, 2);
+            ProductsBttBox.Location = new Point(2, 510);
+            ProductsBttBox.Margin = new Padding(2, 3, 2, 3);
             ProductsBttBox.Name = "ProductsBttBox";
-            ProductsBttBox.Padding = new Padding(2, 2, 2, 2);
-            ProductsBttBox.Size = new Size(1224, 65);
+            ProductsBttBox.Padding = new Padding(2, 3, 2, 3);
+            ProductsBttBox.Size = new Size(1399, 87);
             ProductsBttBox.TabIndex = 3;
             ProductsBttBox.TabStop = false;
             // 
             // PartCancel
             // 
             PartCancel.BackColor = Color.IndianRed;
-            PartCancel.Location = new Point(760, 27);
-            PartCancel.Margin = new Padding(2, 2, 2, 2);
+            PartCancel.Location = new Point(869, 36);
+            PartCancel.Margin = new Padding(2, 3, 2, 3);
             PartCancel.Name = "PartCancel";
-            PartCancel.Size = new Size(60, 25);
+            PartCancel.Size = new Size(69, 33);
             PartCancel.TabIndex = 1;
             PartCancel.Text = "Cancel";
             PartCancel.UseVisualStyleBackColor = false;
@@ -111,20 +112,19 @@
             // 
             PartId.BackColor = SystemColors.ActiveCaption;
             PartId.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartId.Location = new Point(122, 40);
-            PartId.Margin = new Padding(3, 2, 3, 2);
+            PartId.Location = new Point(139, 53);
             PartId.Name = "PartId";
             PartId.ReadOnly = true;
-            PartId.Size = new Size(110, 29);
+            PartId.Size = new Size(125, 34);
             PartId.TabIndex = 16;
             // 
             // PartIdLabel
             // 
             PartIdLabel.AutoSize = true;
             PartIdLabel.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartIdLabel.Location = new Point(5, 40);
+            PartIdLabel.Location = new Point(6, 53);
             PartIdLabel.Name = "PartIdLabel";
-            PartIdLabel.Size = new Size(34, 30);
+            PartIdLabel.Size = new Size(44, 38);
             PartIdLabel.TabIndex = 15;
             PartIdLabel.Text = "ID";
             // 
@@ -132,9 +132,9 @@
             // 
             PartMaxLabel.AutoSize = true;
             PartMaxLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartMaxLabel.Location = new Point(193, 270);
+            PartMaxLabel.Location = new Point(221, 360);
             PartMaxLabel.Name = "PartMaxLabel";
-            PartMaxLabel.Size = new Size(48, 25);
+            PartMaxLabel.Size = new Size(58, 31);
             PartMaxLabel.TabIndex = 12;
             PartMaxLabel.Text = "Max";
             // 
@@ -142,19 +142,18 @@
             // 
             PartMaxInput.BackColor = Color.Gainsboro;
             PartMaxInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartMaxInput.Location = new Point(262, 269);
-            PartMaxInput.Margin = new Padding(3, 2, 3, 2);
+            PartMaxInput.Location = new Point(299, 359);
             PartMaxInput.Name = "PartMaxInput";
-            PartMaxInput.Size = new Size(80, 29);
+            PartMaxInput.Size = new Size(91, 34);
             PartMaxInput.TabIndex = 11;
             // 
             // PartMinLabel
             // 
             PartMinLabel.AutoSize = true;
             PartMinLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartMinLabel.Location = new Point(5, 270);
+            PartMinLabel.Location = new Point(6, 360);
             PartMinLabel.Name = "PartMinLabel";
-            PartMinLabel.Size = new Size(45, 25);
+            PartMinLabel.Size = new Size(54, 31);
             PartMinLabel.TabIndex = 10;
             PartMinLabel.Text = "Min";
             // 
@@ -162,19 +161,18 @@
             // 
             PartMinInput.BackColor = Color.Gainsboro;
             PartMinInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartMinInput.Location = new Point(71, 268);
-            PartMinInput.Margin = new Padding(3, 2, 3, 2);
+            PartMinInput.Location = new Point(81, 357);
             PartMinInput.Name = "PartMinInput";
-            PartMinInput.Size = new Size(80, 29);
+            PartMinInput.Size = new Size(91, 34);
             PartMinInput.TabIndex = 9;
             // 
             // PartPriceLabel
             // 
             PartPriceLabel.AutoSize = true;
             PartPriceLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartPriceLabel.Location = new Point(5, 203);
+            PartPriceLabel.Location = new Point(6, 271);
             PartPriceLabel.Name = "PartPriceLabel";
-            PartPriceLabel.Size = new Size(98, 25);
+            PartPriceLabel.Size = new Size(118, 31);
             PartPriceLabel.TabIndex = 8;
             PartPriceLabel.Text = "Price/Cost";
             // 
@@ -182,19 +180,18 @@
             // 
             PartPriceInput.BackColor = Color.Gainsboro;
             PartPriceInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartPriceInput.Location = new Point(122, 197);
-            PartPriceInput.Margin = new Padding(3, 2, 3, 2);
+            PartPriceInput.Location = new Point(139, 263);
             PartPriceInput.Name = "PartPriceInput";
-            PartPriceInput.Size = new Size(236, 29);
+            PartPriceInput.Size = new Size(269, 34);
             PartPriceInput.TabIndex = 7;
             // 
             // PartInventoryLabel
             // 
             PartInventoryLabel.AutoSize = true;
             PartInventoryLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartInventoryLabel.Location = new Point(5, 144);
+            PartInventoryLabel.Location = new Point(6, 192);
             PartInventoryLabel.Name = "PartInventoryLabel";
-            PartInventoryLabel.Size = new Size(91, 25);
+            PartInventoryLabel.Size = new Size(109, 31);
             PartInventoryLabel.TabIndex = 6;
             PartInventoryLabel.Text = "Inventory";
             // 
@@ -202,19 +199,18 @@
             // 
             PartInventoryInput.BackColor = Color.Gainsboro;
             PartInventoryInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartInventoryInput.Location = new Point(122, 138);
-            PartInventoryInput.Margin = new Padding(3, 2, 3, 2);
+            PartInventoryInput.Location = new Point(139, 184);
             PartInventoryInput.Name = "PartInventoryInput";
-            PartInventoryInput.Size = new Size(236, 29);
+            PartInventoryInput.Size = new Size(269, 34);
             PartInventoryInput.TabIndex = 5;
             // 
             // PartNameLabel
             // 
             PartNameLabel.AutoSize = true;
             PartNameLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            PartNameLabel.Location = new Point(5, 86);
+            PartNameLabel.Location = new Point(6, 115);
             PartNameLabel.Name = "PartNameLabel";
-            PartNameLabel.Size = new Size(62, 25);
+            PartNameLabel.Size = new Size(75, 31);
             PartNameLabel.TabIndex = 4;
             PartNameLabel.Text = "Name";
             // 
@@ -222,20 +218,18 @@
             // 
             PartNameInput.BackColor = Color.Gainsboro;
             PartNameInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            PartNameInput.Location = new Point(122, 80);
-            PartNameInput.Margin = new Padding(3, 2, 3, 2);
+            PartNameInput.Location = new Point(139, 107);
             PartNameInput.Name = "PartNameInput";
-            PartNameInput.Size = new Size(236, 29);
+            PartNameInput.Size = new Size(269, 34);
             PartNameInput.TabIndex = 3;
             // 
             // AddPartPanel
             // 
             AddPartPanel.Controls.Add(ProductContainer);
             AddPartPanel.Controls.Add(ProductsBttBox);
-            AddPartPanel.Location = new Point(10, 75);
-            AddPartPanel.Margin = new Padding(3, 2, 3, 2);
+            AddPartPanel.Location = new Point(11, 100);
             AddPartPanel.Name = "AddPartPanel";
-            AddPartPanel.Size = new Size(1226, 448);
+            AddPartPanel.Size = new Size(1401, 597);
             AddPartPanel.TabIndex = 7;
             // 
             // ProductContainer
@@ -261,11 +255,9 @@
             ProductContainer.Controls.Add(PartNameLabel);
             ProductContainer.Controls.Add(PartNameInput);
             ProductContainer.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            ProductContainer.Location = new Point(3, 2);
-            ProductContainer.Margin = new Padding(3, 2, 3, 2);
+            ProductContainer.Location = new Point(3, 3);
             ProductContainer.Name = "ProductContainer";
-            ProductContainer.Padding = new Padding(3, 2, 3, 2);
-            ProductContainer.Size = new Size(1223, 376);
+            ProductContainer.Size = new Size(1398, 501);
             ProductContainer.TabIndex = 0;
             ProductContainer.TabStop = false;
             ProductContainer.Text = "Add Product";
@@ -274,10 +266,9 @@
             // 
             DeletePart.BackColor = SystemColors.ActiveBorder;
             DeletePart.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DeletePart.Location = new Point(1091, 350);
-            DeletePart.Margin = new Padding(3, 2, 3, 2);
+            DeletePart.Location = new Point(1247, 467);
             DeletePart.Name = "DeletePart";
-            DeletePart.Size = new Size(82, 22);
+            DeletePart.Size = new Size(94, 29);
             DeletePart.TabIndex = 24;
             DeletePart.Text = "Delete";
             DeletePart.UseVisualStyleBackColor = false;
@@ -288,20 +279,18 @@
             SelectedParts.AllowUserToDeleteRows = false;
             SelectedParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             SelectedParts.EditMode = DataGridViewEditMode.EditProgrammatically;
-            SelectedParts.Location = new Point(469, 223);
-            SelectedParts.Margin = new Padding(3, 2, 3, 2);
+            SelectedParts.Location = new Point(536, 297);
             SelectedParts.Name = "SelectedParts";
             SelectedParts.RowHeadersWidth = 51;
-            SelectedParts.Size = new Size(704, 116);
+            SelectedParts.Size = new Size(805, 155);
             SelectedParts.TabIndex = 23;
             // 
             // AddedPartsLabel
             // 
             AddedPartsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AddedPartsLabel.Location = new Point(469, 198);
-            AddedPartsLabel.Margin = new Padding(3, 2, 3, 2);
+            AddedPartsLabel.Location = new Point(536, 264);
             AddedPartsLabel.Name = "AddedPartsLabel";
-            AddedPartsLabel.Size = new Size(201, 23);
+            AddedPartsLabel.Size = new Size(229, 27);
             AddedPartsLabel.TabIndex = 22;
             AddedPartsLabel.Text = "Parts Associated with this Product";
             AddedPartsLabel.TextChanged += AddedPartsLabel_TextChanged;
@@ -310,10 +299,9 @@
             // 
             AddPart.BackColor = SystemColors.ActiveBorder;
             AddPart.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddPart.Location = new Point(1091, 185);
-            AddPart.Margin = new Padding(3, 2, 3, 2);
+            AddPart.Location = new Point(1247, 247);
             AddPart.Name = "AddPart";
-            AddPart.Size = new Size(82, 22);
+            AddPart.Size = new Size(94, 29);
             AddPart.TabIndex = 21;
             AddPart.Text = "Add";
             AddPart.UseVisualStyleBackColor = false;
@@ -335,12 +323,19 @@
             AllParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AllParts.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
             AllParts.DataSource = outsourcedPartBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            AllParts.DefaultCellStyle = dataGridViewCellStyle2;
             AllParts.EditMode = DataGridViewEditMode.EditProgrammatically;
-            AllParts.Location = new Point(469, 64);
-            AllParts.Margin = new Padding(3, 2, 3, 2);
+            AllParts.Location = new Point(536, 85);
             AllParts.Name = "AllParts";
             AllParts.RowHeadersWidth = 51;
-            AllParts.Size = new Size(704, 116);
+            AllParts.Size = new Size(805, 155);
             AllParts.TabIndex = 20;
             // 
             // partIDDataGridViewTextBoxColumn
@@ -398,10 +393,9 @@
             // CandidatePartsLabel
             // 
             CandidatePartsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            CandidatePartsLabel.Location = new Point(469, 40);
-            CandidatePartsLabel.Margin = new Padding(3, 2, 3, 2);
+            CandidatePartsLabel.Location = new Point(536, 53);
             CandidatePartsLabel.Name = "CandidatePartsLabel";
-            CandidatePartsLabel.Size = new Size(121, 23);
+            CandidatePartsLabel.Size = new Size(138, 27);
             CandidatePartsLabel.TabIndex = 19;
             CandidatePartsLabel.Text = "All candidate Parts";
             // 
@@ -409,20 +403,18 @@
             // 
             SearchBoxInput.BackColor = Color.Gainsboro;
             SearchBoxInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            SearchBoxInput.Location = new Point(936, 20);
-            SearchBoxInput.Margin = new Padding(3, 2, 3, 2);
+            SearchBoxInput.Location = new Point(1070, 27);
             SearchBoxInput.Name = "SearchBoxInput";
-            SearchBoxInput.Size = new Size(238, 29);
+            SearchBoxInput.Size = new Size(271, 34);
             SearchBoxInput.TabIndex = 18;
             // 
             // SearchBtt
             // 
             SearchBtt.BackColor = SystemColors.ActiveBorder;
             SearchBtt.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            SearchBtt.Location = new Point(833, 23);
-            SearchBtt.Margin = new Padding(3, 2, 3, 2);
+            SearchBtt.Location = new Point(952, 31);
             SearchBtt.Name = "SearchBtt";
-            SearchBtt.Size = new Size(82, 22);
+            SearchBtt.Size = new Size(94, 29);
             SearchBtt.TabIndex = 17;
             SearchBtt.Text = "Search";
             SearchBtt.UseVisualStyleBackColor = false;
@@ -431,21 +423,20 @@
             // 
             Title.AutoSize = true;
             Title.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Title.Location = new Point(10, 24);
+            Title.Location = new Point(11, 32);
             Title.Name = "Title";
-            Title.Size = new Size(420, 37);
+            Title.Size = new Size(519, 46);
             Title.TabIndex = 6;
             Title.Text = "Inventory Management System";
             // 
             // AddProduct
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1247, 547);
+            ClientSize = new Size(1425, 729);
             Controls.Add(AddPartPanel);
             Controls.Add(Title);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "AddProduct";
             Text = "Add Product";
             ProductsBttBox.ResumeLayout(false);
