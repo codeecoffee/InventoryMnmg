@@ -13,13 +13,14 @@ namespace InventoryMgmt
     public partial class AddProduct : Form
     {
         private BindingList<Part> associatedPartsList = new BindingList<Part>();
-        
+
         public AddProduct()
         {
             InitializeComponent();
             SelectedParts.DataSource = associatedPartsList;
+            AllParts.DataSource = Inventory.GetAllParts();
         }
-        
+
         private void AddedPartsLabel_TextChanged(object sender, EventArgs e)
         {
 
@@ -28,7 +29,7 @@ namespace InventoryMgmt
         private void AddPart_Click(object sender, EventArgs e)
         {
             if (AllParts.SelectedRows.Count > 0)
-            { 
+            {
                 DataGridViewRow selectedRow = AllParts.SelectedRows[0];
                 Part selectedPart = (Part)selectedRow.DataBoundItem;
 
@@ -42,5 +43,7 @@ namespace InventoryMgmt
                 }
             }
         }
+
+
     }
 }
