@@ -30,6 +30,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             PartsBox = new GroupBox();
@@ -77,7 +78,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(618, 54);
+            label2.Size = new Size(519, 46);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             label2.Click += label2_Click;
@@ -112,6 +113,14 @@
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PartsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             PartsGridView.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            PartsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             PartsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
             PartsGridView.DataSource = outsourcedPartBindingSource;
@@ -121,15 +130,15 @@
             PartsGridView.MultiSelect = false;
             PartsGridView.Name = "PartsGridView";
             PartsGridView.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            PartsGridView.RowHeadersWidth = 62;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            PartsGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             PartsGridView.Size = new Size(599, 360);
             PartsGridView.TabIndex = 3;
             PartsGridView.CellContentClick += PartsGridView_CellContentClick;
@@ -201,7 +210,7 @@
             // 
             PartsSearchInput.Location = new Point(372, 42);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(205, 51);
+            PartsSearchInput.Size = new Size(205, 43);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -233,7 +242,7 @@
             // 
             ProductsSearchInput.Location = new Point(567, 42);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 51);
+            ProductsSearchInput.Size = new Size(205, 43);
             ProductsSearchInput.TabIndex = 4;
             // 
             // dataGridView2
@@ -398,7 +407,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);
@@ -418,7 +427,7 @@
             ProductsBttBox.ResumeLayout(false);
             MainScreenPanel.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-          //  ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
