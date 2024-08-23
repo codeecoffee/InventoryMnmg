@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             PartSave = new Button();
             ProductsBttBox = new GroupBox();
             PartCancel = new Button();
@@ -47,10 +47,11 @@
             PartNameInput = new TextBox();
             AddPartPanel = new FlowLayoutPanel();
             ProductContainer = new GroupBox();
+            DeletePart = new Button();
             SelectedParts = new DataGridView();
             AddedPartsLabel = new TextBox();
             AddPart = new Button();
-            dataGridView1 = new DataGridView();
+            AllParts = new DataGridView();
             partIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -59,7 +60,7 @@
             maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             outsourcedPartBindingSource = new BindingSource(components);
             CandidatePartsLabel = new TextBox();
-            textBox1 = new TextBox();
+            SearchBoxInput = new TextBox();
             SearchBtt = new Button();
             Title = new Label();
             inHousePartBindingSource = new BindingSource(components);
@@ -67,7 +68,7 @@
             AddPartPanel.SuspendLayout();
             ProductContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SelectedParts).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AllParts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).BeginInit();
             SuspendLayout();
@@ -232,12 +233,13 @@
             // 
             // ProductContainer
             // 
+            ProductContainer.Controls.Add(DeletePart);
             ProductContainer.Controls.Add(SelectedParts);
             ProductContainer.Controls.Add(AddedPartsLabel);
             ProductContainer.Controls.Add(AddPart);
-            ProductContainer.Controls.Add(dataGridView1);
+            ProductContainer.Controls.Add(AllParts);
             ProductContainer.Controls.Add(CandidatePartsLabel);
-            ProductContainer.Controls.Add(textBox1);
+            ProductContainer.Controls.Add(SearchBoxInput);
             ProductContainer.Controls.Add(SearchBtt);
             ProductContainer.Controls.Add(PartId);
             ProductContainer.Controls.Add(PartIdLabel);
@@ -259,13 +261,27 @@
             ProductContainer.TabStop = false;
             ProductContainer.Text = "Add Product";
             // 
+            // DeletePart
+            // 
+            DeletePart.BackColor = SystemColors.ActiveBorder;
+            DeletePart.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DeletePart.Location = new Point(1247, 466);
+            DeletePart.Name = "DeletePart";
+            DeletePart.Size = new Size(94, 29);
+            DeletePart.TabIndex = 24;
+            DeletePart.Text = "Delete";
+            DeletePart.UseVisualStyleBackColor = false;
+            // 
             // SelectedParts
             // 
+            SelectedParts.AllowUserToAddRows = false;
+            SelectedParts.AllowUserToDeleteRows = false;
             SelectedParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            SelectedParts.EditMode = DataGridViewEditMode.EditProgrammatically;
             SelectedParts.Location = new Point(536, 297);
             SelectedParts.Name = "SelectedParts";
             SelectedParts.RowHeadersWidth = 51;
-            SelectedParts.Size = new Size(805, 158);
+            SelectedParts.Size = new Size(805, 155);
             SelectedParts.TabIndex = 23;
             // 
             // AddedPartsLabel
@@ -288,29 +304,30 @@
             AddPart.TabIndex = 21;
             AddPart.Text = "Add";
             AddPart.UseVisualStyleBackColor = false;
+            AddPart.Click += AddPart_Click;
             // 
-            // dataGridView1
+            // AllParts
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = outsourcedPartBindingSource;
-            dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(536, 86);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(805, 155);
-            dataGridView1.TabIndex = 20;
+            AllParts.AllowUserToAddRows = false;
+            AllParts.AllowUserToDeleteRows = false;
+            AllParts.AutoGenerateColumns = false;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            AllParts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            AllParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AllParts.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
+            AllParts.DataSource = outsourcedPartBindingSource;
+            AllParts.EditMode = DataGridViewEditMode.EditProgrammatically;
+            AllParts.Location = new Point(536, 86);
+            AllParts.Name = "AllParts";
+            AllParts.RowHeadersWidth = 51;
+            AllParts.Size = new Size(805, 155);
+            AllParts.TabIndex = 20;
             // 
             // partIDDataGridViewTextBoxColumn
             // 
@@ -373,14 +390,14 @@
             CandidatePartsLabel.TabIndex = 19;
             CandidatePartsLabel.Text = "All candidate Parts";
             // 
-            // textBox1
+            // SearchBoxInput
             // 
-            textBox1.BackColor = Color.Gainsboro;
-            textBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            textBox1.Location = new Point(1070, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(271, 34);
-            textBox1.TabIndex = 18;
+            SearchBoxInput.BackColor = Color.Gainsboro;
+            SearchBoxInput.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            SearchBoxInput.Location = new Point(1070, 26);
+            SearchBoxInput.Name = "SearchBoxInput";
+            SearchBoxInput.Size = new Size(271, 34);
+            SearchBoxInput.TabIndex = 18;
             // 
             // SearchBtt
             // 
@@ -402,7 +419,7 @@
             Title.Size = new Size(519, 46);
             Title.TabIndex = 6;
             Title.Text = "Inventory Management System";
-
+            // 
             // AddProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -418,7 +435,7 @@
             ProductContainer.ResumeLayout(false);
             ProductContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SelectedParts).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AllParts).EndInit();
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)inHousePartBindingSource).EndInit();
             ResumeLayout(false);
@@ -446,9 +463,9 @@
         private GroupBox ProductContainer;
         private Label Title;
         private TextBox CandidatePartsLabel;
-        private TextBox textBox1;
+        private TextBox SearchBoxInput;
         private Button SearchBtt;
-        private DataGridView dataGridView1;
+        private DataGridView AllParts;
         private DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
@@ -460,5 +477,6 @@
         private Button AddPart;
         private TextBox AddedPartsLabel;
         private DataGridView SelectedParts;
+        private Button DeletePart;
     }
 }

@@ -12,25 +12,7 @@ namespace InventoryMgmt
         {
             PartsGridView.DataSource = Inventory.GetAllParts();
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void PartsBttBox_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void PartAdd_Click(object sender, EventArgs e)
         {
@@ -38,18 +20,14 @@ namespace InventoryMgmt
             addPartForm.ShowDialog();
             PartsGridView.Refresh();
         }
-
         private void ExitBtt_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
         private void PartsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void outsourcedPartBindingSource_CurrentChanged(object sender, EventArgs e)
         {
 
@@ -73,8 +51,15 @@ namespace InventoryMgmt
 
         private void PartDelete_Click(object sender, EventArgs e)
         {
-           Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
-           Inventory.Instance.DeletePart(selectedPart);
+            Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
+            Inventory.Instance.DeletePart(selectedPart);
+        }
+
+        private void ProductAdd_Click(object sender, EventArgs e)
+        {
+            AddProduct addproduct = new AddProduct();
+            addproduct.ShowDialog();
+            ProductsGridView.Refresh();
         }
     }
 }

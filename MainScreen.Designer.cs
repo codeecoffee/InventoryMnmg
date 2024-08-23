@@ -31,6 +31,7 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             label2 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             PartsBox = new GroupBox();
@@ -46,16 +47,16 @@
             PartsSearchBtt = new Button();
             ProductsBox = new GroupBox();
             ProductsSearchInput = new TextBox();
-            dataGridView2 = new DataGridView();
+            ProductsGridView = new DataGridView();
             ProductsSearchBtt = new Button();
             PartsBttBox = new GroupBox();
             PartDelete = new Button();
             PartModify = new Button();
             PartAdd = new Button();
             ProductsBttBox = new GroupBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            ProductDelete = new Button();
+            ProductModify = new Button();
+            ProductAdd = new Button();
             MainScreenPanel = new FlowLayoutPanel();
             groupBox1 = new GroupBox();
             ExitBtt = new Button();
@@ -64,7 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)PartsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).BeginInit();
             ProductsBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsGridView).BeginInit();
             PartsBttBox.SuspendLayout();
             ProductsBttBox.SuspendLayout();
             MainScreenPanel.SuspendLayout();
@@ -78,10 +79,9 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(519, 46);
+            label2.Size = new Size(420, 37);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
-            label2.Click += label2_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -124,20 +124,28 @@
             PartsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
             PartsGridView.DataSource = outsourcedPartBindingSource;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            PartsGridView.DefaultCellStyle = dataGridViewCellStyle3;
             PartsGridView.EnableHeadersVisualStyles = false;
             PartsGridView.Location = new Point(4, 90);
             PartsGridView.Margin = new Padding(1);
             PartsGridView.MultiSelect = false;
             PartsGridView.Name = "PartsGridView";
             PartsGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             PartsGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             PartsGridView.Size = new Size(599, 360);
             PartsGridView.TabIndex = 3;
@@ -210,7 +218,7 @@
             // 
             PartsSearchInput.Location = new Point(372, 42);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(205, 43);
+            PartsSearchInput.Size = new Size(205, 36);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -227,7 +235,7 @@
             // 
             ProductsBox.BackColor = Color.MistyRose;
             ProductsBox.Controls.Add(ProductsSearchInput);
-            ProductsBox.Controls.Add(dataGridView2);
+            ProductsBox.Controls.Add(ProductsGridView);
             ProductsBox.Controls.Add(ProductsSearchBtt);
             ProductsBox.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             ProductsBox.Location = new Point(608, 3);
@@ -236,23 +244,22 @@
             ProductsBox.TabIndex = 1;
             ProductsBox.TabStop = false;
             ProductsBox.Text = "Products";
-            ProductsBox.Enter += groupBox2_Enter;
             // 
             // ProductsSearchInput
             // 
             ProductsSearchInput.Location = new Point(567, 42);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 43);
+            ProductsSearchInput.Size = new Size(205, 36);
             ProductsSearchInput.TabIndex = 4;
             // 
-            // dataGridView2
+            // ProductsGridView
             // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(13, 94);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(762, 354);
-            dataGridView2.TabIndex = 1;
+            ProductsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ProductsGridView.Location = new Point(13, 94);
+            ProductsGridView.Name = "ProductsGridView";
+            ProductsGridView.RowHeadersWidth = 51;
+            ProductsGridView.Size = new Size(762, 354);
+            ProductsGridView.TabIndex = 1;
             // 
             // ProductsSearchBtt
             // 
@@ -277,7 +284,6 @@
             PartsBttBox.Size = new Size(600, 56);
             PartsBttBox.TabIndex = 2;
             PartsBttBox.TabStop = false;
-            PartsBttBox.Enter += PartsBttBox_Enter;
             // 
             // PartDelete
             // 
@@ -318,9 +324,9 @@
             // ProductsBttBox
             // 
             ProductsBttBox.BackColor = Color.MistyRose;
-            ProductsBttBox.Controls.Add(button1);
-            ProductsBttBox.Controls.Add(button2);
-            ProductsBttBox.Controls.Add(button3);
+            ProductsBttBox.Controls.Add(ProductDelete);
+            ProductsBttBox.Controls.Add(ProductModify);
+            ProductsBttBox.Controls.Add(ProductAdd);
             ProductsBttBox.Location = new Point(606, 462);
             ProductsBttBox.Margin = new Padding(2);
             ProductsBttBox.Name = "ProductsBttBox";
@@ -329,38 +335,39 @@
             ProductsBttBox.TabIndex = 3;
             ProductsBttBox.TabStop = false;
             // 
-            // button1
+            // ProductDelete
             // 
-            button1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button1.Location = new Point(612, 16);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(68, 33);
-            button1.TabIndex = 2;
-            button1.Text = "Delete";
-            button1.UseVisualStyleBackColor = true;
+            ProductDelete.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            ProductDelete.Location = new Point(612, 16);
+            ProductDelete.Margin = new Padding(2);
+            ProductDelete.Name = "ProductDelete";
+            ProductDelete.Size = new Size(68, 33);
+            ProductDelete.TabIndex = 2;
+            ProductDelete.Text = "Delete";
+            ProductDelete.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ProductModify
             // 
-            button2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button2.Location = new Point(410, 16);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(68, 33);
-            button2.TabIndex = 1;
-            button2.Text = "Modify";
-            button2.UseVisualStyleBackColor = true;
+            ProductModify.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            ProductModify.Location = new Point(410, 16);
+            ProductModify.Margin = new Padding(2);
+            ProductModify.Name = "ProductModify";
+            ProductModify.Size = new Size(68, 33);
+            ProductModify.TabIndex = 1;
+            ProductModify.Text = "Modify";
+            ProductModify.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // ProductAdd
             // 
-            button3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button3.Location = new Point(191, 16);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(68, 33);
-            button3.TabIndex = 0;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = true;
+            ProductAdd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            ProductAdd.Location = new Point(191, 16);
+            ProductAdd.Margin = new Padding(2);
+            ProductAdd.Name = "ProductAdd";
+            ProductAdd.Size = new Size(68, 33);
+            ProductAdd.TabIndex = 0;
+            ProductAdd.Text = "Add";
+            ProductAdd.UseVisualStyleBackColor = true;
+            ProductAdd.Click += ProductAdd_Click;
             // 
             // MainScreenPanel
             // 
@@ -407,7 +414,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);
@@ -422,7 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).EndInit();
             ProductsBox.ResumeLayout(false);
             ProductsBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ProductsGridView).EndInit();
             PartsBttBox.ResumeLayout(false);
             ProductsBttBox.ResumeLayout(false);
             MainScreenPanel.ResumeLayout(false);
@@ -443,12 +450,12 @@
         private Button PartModify;
         private Button PartAdd;
         private GroupBox ProductsBttBox;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button ProductDelete;
+        private Button ProductModify;
+        private Button ProductAdd;
         private FlowLayoutPanel MainScreenPanel;
         private Button PartsSearchBtt;
-        private DataGridView dataGridView2;
+        private DataGridView ProductsGridView;
         private TextBox PartsSearchInput;
         private TextBox ProductsSearchInput;
         private Button ProductsSearchBtt;
