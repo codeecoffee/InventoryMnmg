@@ -30,14 +30,16 @@ public class Inventory
     {
         Products.Add(product);
     }
-    public bool RemoveProduct(int productId)
+    public bool DeleteProduct(Product product)
     {
-        var product = lookupProduct(productId);
-        if (product != null)
-        {
-            Products.Remove(product);
-        }
-        return false;
+        product.RemoveAllAssociatedParts();
+        return Products.Remove(product);
+        //var product = lookupProduct(productId);
+        //if (product != null)
+        //{
+        //    Products.Remove(product);
+        //}
+        //return false;
     }
     public void updateProduct(int productId, Product updatedProduct)
     {

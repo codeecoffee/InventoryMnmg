@@ -70,8 +70,8 @@ namespace InventoryMgmt
             var result = MessageBox.Show("Are you sure you want to delete this Product?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
-                Inventory.Instance.DeletePart(selectedPart);
+                Product selectedProd = (Product)ProductsGridView.SelectedRows[0].DataBoundItem;
+                Inventory.Instance.DeleteProduct(selectedProd);
             }
         }
     }

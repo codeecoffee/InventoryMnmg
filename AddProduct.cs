@@ -80,7 +80,7 @@ namespace InventoryMgmt
                 MessageBox.Show("Please fill out the Product name");
                 return;
             }
-            if (SelectedParts.SelectedRows.Count < 0) 
+            if (!associatedPartsList.Any()) 
             {
                 MessageBox.Show("You must have at least one part associate to this product");
                 return;
@@ -96,8 +96,8 @@ namespace InventoryMgmt
                 MessageBox.Show("Min value must not be greater than Max value");
                 return;
             }
-            if (int.Parse(ProductInventoryInput.Text) < int.Parse(ProductMaxInput.Text) 
-                || int.Parse(ProductMaxInput.Text) > int.Parse(ProductInventoryInput.Text))
+            if (int.Parse(ProductInventoryInput.Text) > int.Parse(ProductMaxInput.Text) 
+                || int.Parse(ProductInventoryInput.Text) < int.Parse(ProductMinInput.Text))
             {
                 MessageBox.Show("Inventory myst be between Min and Max values.");
                 return;

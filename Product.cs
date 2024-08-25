@@ -13,6 +13,7 @@ public class Product
 
     public Product(BindingList<Part> associatedParts, int productId, string name, decimal price, int inStock, int min, int max) 
     { 
+        ProductId = productId;
         AssociatedParts = associatedParts;
         Name = name;
         Price = price;
@@ -31,11 +32,17 @@ public class Product
         var part = LookupAssociatedPart(partId);
         if(part != null)
         {
+            part.BelongsToProduct = false;
             AssociatedParts.Remove(part);
             return true;
         }
         return false;
     }
-
+    public bool RemoveAllAssociatedParts()
+    {
+        foreach( var part in AssociatedParts ) part.BelongsToProduct= false;
+        AssociatedParts=[];
+        return true;
+    }
 }
 

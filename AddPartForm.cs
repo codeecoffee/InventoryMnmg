@@ -62,7 +62,7 @@ namespace InventoryMgmt
                 MessageBox.Show("Min value cannot be greater than Max value");
                 return;
             }
-            if (inventory < min || max > inventory)
+            if (inventory < min || inventory > max)
             {
                 MessageBox.Show("Inventory must be between Min and Max values.");
                 return;
