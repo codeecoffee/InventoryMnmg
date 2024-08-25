@@ -38,51 +38,40 @@ namespace InventoryMgmt
 
         private void PartSave_Click(object sender, EventArgs e)
         {
-
-            string name = PartNameInput.Text;
-            int inventory = int.Parse(PartInventoryInput.Text); //instock
-            decimal price = decimal.Parse(PartPriceInput.Text);
-            int max = int.Parse(PartMaxInput.Text);
-            int min = int.Parse(PartMinInput.Text);
-
-
-
-
             if (string.IsNullOrWhiteSpace(this.PartNameInput.Text) ||
                 string.IsNullOrWhiteSpace(this.PartInventoryInput.Text) ||
                 string.IsNullOrWhiteSpace(this.PartPriceInput.Text) ||
                 string.IsNullOrWhiteSpace(this.PartMaxInput.Text) ||
-                string.IsNullOrWhiteSpace(this.PartMinInput.Text)
-                )
+                string.IsNullOrWhiteSpace(this.PartMinInput.Text))
             {
                 MessageBox.Show("Please fill out all fields");
                 return;
 
             }
 
-            //bool isNumeric = int.TryParse(PartInventoryInput.Text, out int inventory)
-            //                && decimal.TryParse(PartPriceInput.Text, out decimal price)
-            //                && int.TryParse(PartMinInput.Text, out int min)
-            //                && int.TryParse(PartMaxInput.Text, out int max);
+            bool isValid = InputValidator.ValidateNumFields(
+                (PartInventoryInput.Text, "Inventory"),
+                (PartPriceInput.Text, "Price"),
+                (PartMaxInput.Text, "Max"),
+                (PartMinInput.Text, "Min"));
+            if (!isValid) return;
 
-
-
-
-            //if (!isNumeric)
-            //{
-            //    MessageBox.Show("Please enter valid numbers for Inventory, Price, Min and Max");
-            //}
-
+            string name = PartNameInput.Text;
+            int inventory = int.Parse(PartInventoryInput.Text); //instock
+            decimal price = decimal.Parse(PartPriceInput.Text);
+            int max = int.Parse(PartMaxInput.Text);
+            int min = int.Parse(PartMinInput.Text);
+            
             if (min > max)
             {
                 MessageBox.Show("Min value cannot be greater than Max value");
                 return;
             }
-            //if (min < inventory || max > inventory)
-            //{
-            //    MessageBox.Show("Inventory must be between Min and Max values.");
-            //    return;
-            //}
+            if (inventory < min || max > inventory)
+            {
+                MessageBox.Show("Inventory must be between Min and Max values.");
+                return;
+            }
 
             Part? newPart = null;
 

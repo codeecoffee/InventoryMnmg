@@ -82,7 +82,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(519, 46);
+            label2.Size = new Size(420, 37);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             // 
@@ -112,6 +112,8 @@
             PartsGridView.AllowUserToAddRows = false;
             PartsGridView.AllowUserToDeleteRows = false;
             PartsGridView.AllowUserToOrderColumns = true;
+            PartsGridView.AllowUserToResizeColumns = false;
+            PartsGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PartsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -135,6 +137,7 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             PartsGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            PartsGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             PartsGridView.EnableHeadersVisualStyles = false;
             PartsGridView.Location = new Point(4, 90);
             PartsGridView.Margin = new Padding(1);
@@ -149,7 +152,7 @@
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            PartsGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            PartsGridView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             PartsGridView.Size = new Size(599, 360);
             PartsGridView.TabIndex = 3;
             PartsGridView.CellContentClick += PartsGridView_CellContentClick;
@@ -221,7 +224,7 @@
             // 
             PartsSearchInput.Location = new Point(372, 42);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(205, 43);
+            PartsSearchInput.Size = new Size(205, 36);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -252,7 +255,7 @@
             // 
             ProductsSearchInput.Location = new Point(567, 42);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 43);
+            ProductsSearchInput.Size = new Size(205, 36);
             ProductsSearchInput.TabIndex = 4;
             // 
             // ProductsGridView
@@ -372,6 +375,7 @@
             ProductDelete.TabIndex = 2;
             ProductDelete.Text = "Delete";
             ProductDelete.UseVisualStyleBackColor = true;
+            ProductDelete.Click += ProductDelete_Click;
             // 
             // ProductModify
             // 
@@ -441,7 +445,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);

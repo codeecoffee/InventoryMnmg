@@ -14,7 +14,7 @@ namespace InventoryMgmt
 {
     public partial class ModifyPart : Form
     {
-        private readonly Part selectedPart;
+        private Part selectedPart;
         public ModifyPart(Part part)
         {
             InitializeComponent();
@@ -43,7 +43,7 @@ namespace InventoryMgmt
             }
         }
 
-        private void PartSave_Click(object sender, EventArgs e)
+        private void ModifiedPartSave_Click(object sender, EventArgs e)
         {
             string name = PartNameInput.Text;
             int inventory = int.Parse(PartInventoryInput.Text);
@@ -54,6 +54,7 @@ namespace InventoryMgmt
 
             if (PartInhouse.Checked && selectedPart is InHousePart inHousePart)
             {
+                Console.WriteLine("if check -PartInhouse- reached");
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
                 if (!machineIdValid)
                 {
@@ -68,6 +69,8 @@ namespace InventoryMgmt
             }
             else if (PartOutsourced.Checked && selectedPart is OutsourcedPart outsourcedPart)
             {
+                Console.WriteLine("if check -Outsource- reached");
+
                 string companyName = PartNameInput.Text;
 
                 outsourcedPart.CompanyName = companyName;
@@ -82,9 +85,12 @@ namespace InventoryMgmt
                 MessageBox.Show("Please select either In-house or Outsourced");
                 return;
             }
+            Console.WriteLine("if check -PartInhouse- reached");
 
             Inventory.Instance.updatePart(selectedPart.PartID, selectedPart);
             this.Close();
+            Console.WriteLine("Supposed to be closed");
+
 
         }
 

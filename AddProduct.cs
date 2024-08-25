@@ -44,6 +44,26 @@ namespace InventoryMgmt
             }
         }
 
+        private void PartCancel_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
+        private void DeletePart_Click(object sender, EventArgs e)
+        {
+            
+            if (SelectedParts.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
+                Part selectedPart = (Part)selectedRow.DataBoundItem;
+
+                associatedPartsList.Remove(selectedPart);
+
+            }
+        }
     }
 }

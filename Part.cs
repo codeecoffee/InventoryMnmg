@@ -6,8 +6,8 @@
     public int InStock { get; set; }
     public int Min {  get; set; }
     public int Max { get; set; }
-
-    protected Part(int partID, string name, decimal price, int inStock, int min, int max)
+    public bool? BelongsToProduct { get; set; }
+    protected Part(int partID, string name, decimal price, int inStock, int min, int max, bool? belongsToProduct)
     {
         PartID = partID;
         Name = name;
@@ -15,6 +15,7 @@
         InStock = inStock;
         Min = min;
         Max = max;
+        this.BelongsToProduct = belongsToProduct;
     }
 }
 
