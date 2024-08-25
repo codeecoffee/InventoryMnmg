@@ -7,13 +7,11 @@ namespace InventoryMgmt
             InitializeComponent();
             this.Load += MainScreen_Load;
         }
-
         private void MainScreen_Load(object sender, EventArgs e)
         {
             PartsGridView.DataSource = Inventory.GetAllParts();
+            ProductsGridView.DataSource = Inventory.GetAllProducts();
         }
-
-
         private void PartAdd_Click(object sender, EventArgs e)
         {
             AddPartForm addPartForm = new AddPartForm();
@@ -36,7 +34,6 @@ namespace InventoryMgmt
         {
 
         }
-
         private void PartModify_Click(object sender, EventArgs e)
         {
             if (PartsGridView.SelectedRows.Count > 0)
@@ -52,31 +49,22 @@ namespace InventoryMgmt
                 MessageBox.Show("Please select a part to modify");
             }
         }
-
         private void PartDelete_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                //check if part is associated with any product
                 Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
-                if (selectedPart.BelongsToProduct == true)
-                {
-                    MessageBox.Show("This part is associated to a Product. You cannot delete it.");
-                    return;
-                }
                 Inventory.Instance.DeletePart(selectedPart);
 
             }
         }
-
         private void ProductAdd_Click(object sender, EventArgs e)
         {
             AddProduct addproduct = new AddProduct();
             addproduct.ShowDialog();
             ProductsGridView.Refresh();
         }
-
         private void ProductDelete_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to delete this Product?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

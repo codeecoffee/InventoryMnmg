@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             PartSave = new Button();
             ProductsBttBox = new GroupBox();
             PartCancel = new Button();
@@ -56,18 +56,18 @@
             AddedPartsLabel = new TextBox();
             AddPart = new Button();
             AllParts = new DataGridView();
-            partIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             outsourcedPartBindingSource = new BindingSource(components);
             CandidatePartsLabel = new TextBox();
             SearchBoxInput = new TextBox();
             SearchBtt = new Button();
             Title = new Label();
             inHousePartBindingSource = new BindingSource(components);
+            partIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ProductsBttBox.SuspendLayout();
             AddPartPanel.SuspendLayout();
             ProductContainer.SuspendLayout();
@@ -293,35 +293,35 @@
             // 
             SelectedParts.AllowUserToAddRows = false;
             SelectedParts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            SelectedParts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            SelectedParts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             SelectedParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            SelectedParts.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            SelectedParts.DefaultCellStyle = dataGridViewCellStyle2;
             SelectedParts.EditMode = DataGridViewEditMode.EditProgrammatically;
             SelectedParts.Location = new Point(469, 223);
             SelectedParts.Margin = new Padding(3, 2, 3, 2);
             SelectedParts.Name = "SelectedParts";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Control;
-            dataGridViewCellStyle8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            SelectedParts.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            SelectedParts.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             SelectedParts.RowHeadersWidth = 51;
             SelectedParts.Size = new Size(704, 116);
             SelectedParts.TabIndex = 23;
@@ -355,25 +355,25 @@
             AllParts.AllowUserToAddRows = false;
             AllParts.AllowUserToDeleteRows = false;
             AllParts.AutoGenerateColumns = false;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            AllParts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Control;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            AllParts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             AllParts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AllParts.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
             AllParts.DataSource = outsourcedPartBindingSource;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            AllParts.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            AllParts.DefaultCellStyle = dataGridViewCellStyle5;
             AllParts.EditMode = DataGridViewEditMode.EditProgrammatically;
             AllParts.Location = new Point(469, 64);
             AllParts.Margin = new Padding(3, 2, 3, 2);
@@ -381,53 +381,6 @@
             AllParts.RowHeadersWidth = 51;
             AllParts.Size = new Size(704, 116);
             AllParts.TabIndex = 20;
-            // 
-            // partIDDataGridViewTextBoxColumn
-            // 
-            partIDDataGridViewTextBoxColumn.DataPropertyName = "PartID";
-            partIDDataGridViewTextBoxColumn.HeaderText = "PartID";
-            partIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            priceDataGridViewTextBoxColumn.MinimumWidth = 6;
-            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            priceDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // inStockDataGridViewTextBoxColumn
-            // 
-            inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
-            inStockDataGridViewTextBoxColumn.HeaderText = "InStock";
-            inStockDataGridViewTextBoxColumn.MinimumWidth = 6;
-            inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
-            inStockDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // minDataGridViewTextBoxColumn
-            // 
-            minDataGridViewTextBoxColumn.DataPropertyName = "Min";
-            minDataGridViewTextBoxColumn.HeaderText = "Min";
-            minDataGridViewTextBoxColumn.MinimumWidth = 6;
-            minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
-            minDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // maxDataGridViewTextBoxColumn
-            // 
-            maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
-            maxDataGridViewTextBoxColumn.HeaderText = "Max";
-            maxDataGridViewTextBoxColumn.MinimumWidth = 6;
-            maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
-            maxDataGridViewTextBoxColumn.Width = 125;
             // 
             // outsourcedPartBindingSource
             // 
@@ -474,6 +427,54 @@
             Title.Size = new Size(420, 37);
             Title.TabIndex = 6;
             Title.Text = "Inventory Management System";
+            // 
+            // partIDDataGridViewTextBoxColumn
+            // 
+            partIDDataGridViewTextBoxColumn.DataPropertyName = "PartID";
+            partIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            partIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
+            partIDDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.Width = 390;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // inStockDataGridViewTextBoxColumn
+            // 
+            inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
+            inStockDataGridViewTextBoxColumn.HeaderText = "InStock";
+            inStockDataGridViewTextBoxColumn.MinimumWidth = 6;
+            inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
+            inStockDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // minDataGridViewTextBoxColumn
+            // 
+            minDataGridViewTextBoxColumn.DataPropertyName = "Min";
+            minDataGridViewTextBoxColumn.HeaderText = "Min";
+            minDataGridViewTextBoxColumn.MinimumWidth = 6;
+            minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
+            minDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // maxDataGridViewTextBoxColumn
+            // 
+            maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
+            maxDataGridViewTextBoxColumn.HeaderText = "Max";
+            maxDataGridViewTextBoxColumn.MinimumWidth = 6;
+            maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
+            maxDataGridViewTextBoxColumn.Width = 45;
             // 
             // AddProduct
             // 

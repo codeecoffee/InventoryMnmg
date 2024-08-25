@@ -20,7 +20,7 @@ public class Inventory
     }
     public static int GenerateProductId()
     {
-        return partIdCounter++;
+        return productIdCounter++;
     }
     public Product? lookupProduct(int productId) 
     {
@@ -53,17 +53,22 @@ public class Inventory
         return Products;
     }
 
+    public Part? lookupPart(int partId)
+    {
+        return AllParts.FirstOrDefault(p => p.PartID == partId);
+    }
     public void AddPart(Part part)
     {
         AllParts.Add(part);
     }
     public bool DeletePart(Part part) 
     {
+        if (part.BelongsToProduct)
+        {
+            MessageBox.Show("This part cannot be removed because it is associated with a product.");
+            return false;
+        }
         return AllParts.Remove(part);
-    }
-    public Part? lookupPart(int partId)
-    {
-        return AllParts.FirstOrDefault(p=> p.PartID == partId);
     }
     public void updatePart(int partId, Part updatedPart)
     {

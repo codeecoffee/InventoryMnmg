@@ -75,17 +75,12 @@ namespace InventoryMgmt
         private void PartSave_Click(object sender, EventArgs e)
         {
             //validation
-            if (string.IsNullOrEmpty(this.ProductNameInput.Text)||
-                string.IsNullOrEmpty(this.ProductInventoryInput.Text)||
-                string.IsNullOrEmpty(this.ProductPriceInput.Text)||
-                string.IsNullOrEmpty(this.ProductMaxInput.Text)||
-                string.IsNullOrEmpty(this.ProductMinInput.Text)
-                )
+            if (string.IsNullOrEmpty(this.ProductNameInput.Text))
             {
-                MessageBox.Show("Please fill out all fields");
+                MessageBox.Show("Please fill out the Product name");
                 return;
             }
-            else if (SelectedParts.SelectedRows.Count < 0) 
+            if (SelectedParts.SelectedRows.Count < 0) 
             {
                 MessageBox.Show("You must have at least one part associate to this product");
                 return;
@@ -108,24 +103,19 @@ namespace InventoryMgmt
                 return;
             }
 
+            
             string name = ProductNameInput.Text;
             int inventory = int.Parse(ProductInventoryInput.Text); //instock
             decimal price = decimal.Parse(ProductPriceInput.Text);
             int max = int.Parse(ProductMaxInput.Text);
             int min = int.Parse(ProductMinInput.Text);
-            
-            //make part part of a product setting the bool to true to prevent deletion
-            //foreach (piece in SelectedParts)
-            //{ 
-            //}
-            //var SelectedPartBind = new BindingList<Part>(SelectedParts);
-            //Product newProduct = new Product(SelectedParts,name, inventory, price, max, min, );
 
-            //if(newProduct !=null)
-            //{
-            //  Inventory.Instance.AddProduct(newProduct);
-            //  this.Close();
-            //}
+
+            Product newProduct = new Product(associatedPartsList, newProductId, name, price, inventory,min, max);
+
+            Inventory.Instance.AddProduct(newProduct);
+            this.Close();
+
         }
     }
 }

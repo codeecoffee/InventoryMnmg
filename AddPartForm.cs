@@ -13,7 +13,8 @@ namespace InventoryMgmt
     public partial class AddPartForm : Form
     {
         private int newPartId;
-        
+        bool flagChangePartType = false;
+
         public AddPartForm()
         {
             InitializeComponent();
@@ -38,15 +39,10 @@ namespace InventoryMgmt
 
         private void PartSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(this.PartNameInput.Text) ||
-                string.IsNullOrWhiteSpace(this.PartInventoryInput.Text) ||
-                string.IsNullOrWhiteSpace(this.PartPriceInput.Text) ||
-                string.IsNullOrWhiteSpace(this.PartMaxInput.Text) ||
-                string.IsNullOrWhiteSpace(this.PartMinInput.Text))
+            if (string.IsNullOrWhiteSpace(this.PartNameInput.Text))
             {
-                MessageBox.Show("Please fill out all fields");
+                MessageBox.Show("Please fill out the Part name");
                 return;
-
             }
 
             bool isValid = InputValidator.ValidateNumFields(
@@ -61,7 +57,6 @@ namespace InventoryMgmt
             decimal price = decimal.Parse(PartPriceInput.Text);
             int max = int.Parse(PartMaxInput.Text);
             int min = int.Parse(PartMinInput.Text);
-            bool belongToProd = false;
             if (min > max)
             {
                 MessageBox.Show("Min value cannot be greater than Max value");
@@ -74,21 +69,23 @@ namespace InventoryMgmt
             }
 
             Part? newPart = null;
-
             if (PartInhouse.Checked)
             {
+
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
+
+                //bool machineIdValid = InputValidator.ValidateNumFields(int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId),"Machine Id");
                 if (!machineIdValid)
                 {
                     MessageBox.Show("Please enter a valid Machine Id");
                     return;
                 }
-                newPart = new InHousePart(newPartId, name, price, inventory, min, max, machineId, belongToProd);
+                newPart = new InHousePart(newPartId, name, price, inventory, min, max, machineId);
             }
             else if (PartOutsourced.Checked)
             {
                 string companyName = PartMachineIdOrCompanyInput.Text;
-                newPart = new OutsourcedPart(newPartId, name, price, inventory, min, max, companyName, belongToProd);
+                newPart = new OutsourcedPart(newPartId, name, price, inventory, min, max, companyName);
 
             }
             else
@@ -105,11 +102,14 @@ namespace InventoryMgmt
         private void PartInhouse_CheckedChanged(object sender, EventArgs e)
         {
             PartMachineOrCompanyLabel.Text = "Machine ID";
+            PartMachineIdOrCompanyInput.Text = "";
         }
 
         private void PartOutsourced_CheckedChanged(object sender, EventArgs e)
         {
             PartMachineOrCompanyLabel.Text = "Company Name";
+            PartMachineIdOrCompanyInput.Text = "";
+
         }
 
 
