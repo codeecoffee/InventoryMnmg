@@ -61,7 +61,7 @@ namespace InventoryMgmt
             decimal price = decimal.Parse(PartPriceInput.Text);
             int max = int.Parse(PartMaxInput.Text);
             int min = int.Parse(PartMinInput.Text);
-            
+            bool belongToProd = false;
             if (min > max)
             {
                 MessageBox.Show("Min value cannot be greater than Max value");
@@ -83,12 +83,12 @@ namespace InventoryMgmt
                     MessageBox.Show("Please enter a valid Machine Id");
                     return;
                 }
-                newPart = new InHousePart(newPartId, name, price, inventory, min, max, machineId);
+                newPart = new InHousePart(newPartId, name, price, inventory, min, max, machineId, belongToProd);
             }
             else if (PartOutsourced.Checked)
             {
                 string companyName = PartMachineIdOrCompanyInput.Text;
-                newPart = new OutsourcedPart(newPartId, name, price, inventory, min, max, companyName);
+                newPart = new OutsourcedPart(newPartId, name, price, inventory, min, max, companyName, belongToProd);
 
             }
             else

@@ -32,6 +32,10 @@ namespace InventoryMgmt
         {
 
         }
+        private void inHousePartBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void PartModify_Click(object sender, EventArgs e)
         {
