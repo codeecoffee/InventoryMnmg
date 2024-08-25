@@ -18,6 +18,10 @@ public class Inventory
     { 
         return partIdCounter++; 
     }
+    public static int GenerateProductId()
+    {
+        return partIdCounter++;
+    }
     public Product? lookupProduct(int productId) 
     {
         return Products.FirstOrDefault(p=> p.ProductId == productId);

@@ -22,6 +22,15 @@ public class Product
         }
         return false;
     }
-
+    public Product(BindingList<Part> associatedParts, int productId, string name, decimal price, int inStock, int min, int max)
+    {
+        AssociatedParts = associatedParts;
+        ProductId = productId;
+        Name = name;
+        Price = price;
+        InStock = inStock;
+        Min = min;
+        Max = max;
+    }
 }
 

@@ -54,8 +54,13 @@ namespace InventoryMgmt
             var result = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                //need to check if part is associated with any product
+                //check if part is associated with any product
                 Part selectedPart = (Part)PartsGridView.SelectedRows[0].DataBoundItem;
+                if (selectedPart.BelongsToProduct == true)
+                {
+                    MessageBox.Show("This part is associated to a Product. You cannot delete it.");
+                    return;
+                }
                 Inventory.Instance.DeletePart(selectedPart);
 
             }
