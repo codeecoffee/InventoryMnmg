@@ -55,6 +55,19 @@ public class Inventory
         return Products;
     }
 
+    public static BindingList <Product> SearchProductByName(string name)
+    {
+        var results = new BindingList<Product>(Products.Where(p=> p.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >=0).ToList());
+        return results;
+    }
+    public Product? SearchProductsById(int productId) { return Products.FirstOrDefault(p => p.ProductId == productId); }
+    public static BindingList<Product> SearchProductsByPrice(decimal price)
+    {
+        //var results = new BindingList<Product>(Products.Where(p => p.Price == price).ToList());
+        //return results;
+        return new BindingList<Product>(Products.Where(p => p.Price == price).ToList());
+    }
+
     public Part? lookupPart(int partId)
     {
         return AllParts.FirstOrDefault(p => p.PartID == partId);
@@ -86,4 +99,22 @@ public class Inventory
     { 
         return AllParts;
     }
+
+    public static BindingList<Part> SearchPartsByName(string name)
+    {
+        var results = new BindingList<Part>(AllParts.Where(p => p.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0).ToList());
+        return results;
+    }
+    // Search parts by ID
+    public static Part? SearchPartsById(int partId)
+    {
+        return AllParts.FirstOrDefault(p => p.PartID == partId);
+    }
+    // Search parts by price
+    public static BindingList<Part> SearchPartsByPrice(decimal price)
+    {
+        var results = new BindingList<Part>(AllParts.Where(p => p.Price == price).ToList());
+        return results;
+    }
+
 }

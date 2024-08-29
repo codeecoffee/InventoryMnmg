@@ -85,11 +85,10 @@ namespace InventoryMgmt
                 MessageBox.Show("Please select either In-house or Outsourced");
                 return;
             }
-            Console.WriteLine("if check -PartInhouse- reached");
+            
 
             Inventory.Instance.updatePart(selectedPart.PartID, selectedPart);
             this.Close();
-            Console.WriteLine("Supposed to be closed");
 
 
         }

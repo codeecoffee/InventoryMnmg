@@ -44,13 +44,17 @@
             inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            belongsToProductDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
             outsourcedPartBindingSource = new BindingSource(components);
             PartsSearchInput = new TextBox();
             PartsSearchBtt = new Button();
             ProductsBox = new GroupBox();
             ProductsSearchInput = new TextBox();
             ProductsGridView = new DataGridView();
+            ProductId = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            minDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            maxDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             productBindingSource = new BindingSource(components);
             ProductsSearchBtt = new Button();
             PartsBttBox = new GroupBox();
@@ -65,11 +69,6 @@
             groupBox1 = new GroupBox();
             ExitBtt = new Button();
             inHousePartBindingSource = new BindingSource(components);
-            ProductId = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            priceDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            minDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            maxDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             PartsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PartsGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)outsourcedPartBindingSource).BeginInit();
@@ -89,7 +88,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(420, 37);
+            label2.Size = new Size(618, 54);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             // 
@@ -126,7 +125,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             PartsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PartsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn, belongsToProductDataGridViewCheckBoxColumn });
+            PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
             PartsGridView.DataSource = outsourcedPartBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -146,6 +145,7 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             PartsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            PartsGridView.RowHeadersWidth = 62;
             PartsGridView.Size = new Size(593, 354);
             PartsGridView.TabIndex = 3;
             // 
@@ -153,6 +153,7 @@
             // 
             partIDDataGridViewTextBoxColumn.DataPropertyName = "PartID";
             partIDDataGridViewTextBoxColumn.HeaderText = "ID";
+            partIDDataGridViewTextBoxColumn.MinimumWidth = 8;
             partIDDataGridViewTextBoxColumn.Name = "partIDDataGridViewTextBoxColumn";
             partIDDataGridViewTextBoxColumn.Width = 40;
             // 
@@ -160,6 +161,7 @@
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.MinimumWidth = 8;
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             nameDataGridViewTextBoxColumn.Width = 170;
             // 
@@ -167,12 +169,15 @@
             // 
             priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn.MinimumWidth = 8;
             priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.Width = 150;
             // 
             // inStockDataGridViewTextBoxColumn
             // 
             inStockDataGridViewTextBoxColumn.DataPropertyName = "InStock";
             inStockDataGridViewTextBoxColumn.HeaderText = "InStock";
+            inStockDataGridViewTextBoxColumn.MinimumWidth = 8;
             inStockDataGridViewTextBoxColumn.Name = "inStockDataGridViewTextBoxColumn";
             inStockDataGridViewTextBoxColumn.Width = 55;
             // 
@@ -180,6 +185,7 @@
             // 
             minDataGridViewTextBoxColumn.DataPropertyName = "Min";
             minDataGridViewTextBoxColumn.HeaderText = "Min";
+            minDataGridViewTextBoxColumn.MinimumWidth = 8;
             minDataGridViewTextBoxColumn.Name = "minDataGridViewTextBoxColumn";
             minDataGridViewTextBoxColumn.Width = 40;
             // 
@@ -187,14 +193,9 @@
             // 
             maxDataGridViewTextBoxColumn.DataPropertyName = "Max";
             maxDataGridViewTextBoxColumn.HeaderText = "Max";
+            maxDataGridViewTextBoxColumn.MinimumWidth = 8;
             maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
             maxDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // belongsToProductDataGridViewCheckBoxColumn
-            // 
-            belongsToProductDataGridViewCheckBoxColumn.DataPropertyName = "BelongsToProduct";
-            belongsToProductDataGridViewCheckBoxColumn.HeaderText = "Used in Product";
-            belongsToProductDataGridViewCheckBoxColumn.Name = "belongsToProductDataGridViewCheckBoxColumn";
             // 
             // outsourcedPartBindingSource
             // 
@@ -204,7 +205,7 @@
             // 
             PartsSearchInput.Location = new Point(371, 29);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(200, 36);
+            PartsSearchInput.Size = new Size(200, 51);
             PartsSearchInput.TabIndex = 2;
             // 
             // PartsSearchBtt
@@ -235,7 +236,7 @@
             // 
             ProductsSearchInput.Location = new Point(552, 31);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 36);
+            ProductsSearchInput.Size = new Size(205, 51);
             ProductsSearchInput.TabIndex = 4;
             // 
             // ProductsGridView
@@ -273,6 +274,52 @@
             ProductsGridView.RowHeadersWidth = 51;
             ProductsGridView.Size = new Size(762, 354);
             ProductsGridView.TabIndex = 1;
+            // 
+            // ProductId
+            // 
+            ProductId.DataPropertyName = "ProductId";
+            ProductId.HeaderText = "ID";
+            ProductId.MinimumWidth = 8;
+            ProductId.Name = "ProductId";
+            ProductId.ReadOnly = true;
+            ProductId.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            nameDataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.True;
+            nameDataGridViewTextBoxColumn1.Width = 475;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn1.HeaderText = "Price";
+            priceDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            priceDataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // minDataGridViewTextBoxColumn1
+            // 
+            minDataGridViewTextBoxColumn1.DataPropertyName = "Min";
+            minDataGridViewTextBoxColumn1.HeaderText = "Min";
+            minDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            minDataGridViewTextBoxColumn1.Name = "minDataGridViewTextBoxColumn1";
+            minDataGridViewTextBoxColumn1.ReadOnly = true;
+            minDataGridViewTextBoxColumn1.Width = 40;
+            // 
+            // maxDataGridViewTextBoxColumn1
+            // 
+            maxDataGridViewTextBoxColumn1.DataPropertyName = "Max";
+            maxDataGridViewTextBoxColumn1.HeaderText = "Max";
+            maxDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            maxDataGridViewTextBoxColumn1.Name = "maxDataGridViewTextBoxColumn1";
+            maxDataGridViewTextBoxColumn1.ReadOnly = true;
+            maxDataGridViewTextBoxColumn1.Width = 40;
             // 
             // productBindingSource
             // 
@@ -374,6 +421,7 @@
             ProductModify.TabIndex = 1;
             ProductModify.Text = "Modify";
             ProductModify.UseVisualStyleBackColor = true;
+            ProductModify.Click += ProductModify_Click;
             // 
             // ProductAdd
             // 
@@ -429,50 +477,9 @@
             // 
             inHousePartBindingSource.DataSource = typeof(InHousePart);
             // 
-            // ProductId
-            // 
-            ProductId.DataPropertyName = "ProductId";
-            ProductId.HeaderText = "ID";
-            ProductId.Name = "ProductId";
-            ProductId.ReadOnly = true;
-            ProductId.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            nameDataGridViewTextBoxColumn1.Resizable = DataGridViewTriState.True;
-            nameDataGridViewTextBoxColumn1.Width = 475;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            priceDataGridViewTextBoxColumn1.HeaderText = "Price";
-            priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            priceDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // minDataGridViewTextBoxColumn1
-            // 
-            minDataGridViewTextBoxColumn1.DataPropertyName = "Min";
-            minDataGridViewTextBoxColumn1.HeaderText = "Min";
-            minDataGridViewTextBoxColumn1.Name = "minDataGridViewTextBoxColumn1";
-            minDataGridViewTextBoxColumn1.ReadOnly = true;
-            minDataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // maxDataGridViewTextBoxColumn1
-            // 
-            maxDataGridViewTextBoxColumn1.DataPropertyName = "Max";
-            maxDataGridViewTextBoxColumn1.HeaderText = "Max";
-            maxDataGridViewTextBoxColumn1.Name = "maxDataGridViewTextBoxColumn1";
-            maxDataGridViewTextBoxColumn1.ReadOnly = true;
-            maxDataGridViewTextBoxColumn1.Width = 40;
-            // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);

@@ -99,7 +99,7 @@ namespace InventoryMgmt
             if (int.Parse(ProductInventoryInput.Text) > int.Parse(ProductMaxInput.Text) 
                 || int.Parse(ProductInventoryInput.Text) < int.Parse(ProductMinInput.Text))
             {
-                MessageBox.Show("Inventory myst be between Min and Max values.");
+                MessageBox.Show("Inventory must be between Min and Max values.");
                 return;
             }
 

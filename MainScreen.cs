@@ -74,5 +74,21 @@ namespace InventoryMgmt
                 Inventory.Instance.DeleteProduct(selectedProd);
             }
         }
+
+        private void ProductModify_Click(object sender, EventArgs e)
+        {
+            if (ProductsGridView.SelectedRows.Count > 0)
+            {
+                Product selectedProduct = (Product)ProductsGridView.SelectedRows[0].DataBoundItem;
+                ModifyProduct modifyproductForm = new ModifyProduct(selectedProduct);
+                modifyproductForm.ShowDialog();
+
+                ProductsGridView.Refresh();
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to modify");
+            }
+        }
     }
 }
