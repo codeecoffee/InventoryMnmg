@@ -11,8 +11,8 @@ public class Inventory
     public static BindingList<Product> Products { get; set; } = new BindingList<Product>();
     public static BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
 
-    private static int partIdCounter = 1;
-    private static int productIdCounter = 1;
+    private static int partIdCounter = 0;
+    private static int productIdCounter = 0;
 
     public static int GeneratePartId()
     { 
@@ -32,14 +32,21 @@ public class Inventory
     }
     public bool DeleteProduct(Product product)
     {
-        product.RemoveAllAssociatedParts();
-        return Products.Remove(product);
-        //var product = lookupProduct(productId);
-        //if (product != null)
-        //{
-        //    Products.Remove(product);
-        //}
-        //return false;
+        var prod = lookupProduct(product.ProductId);
+        if (prod != null)
+        {
+            foreach (var part in prod.AssociatedParts)
+            {
+                if (CanDeletePart(part))
+                {
+                    prod.RemoveAllAssociatedParts();
+                }
+            }
+            return Products.Remove(prod);
+
+        }
+        return false;
+
     }
     public void updateProduct(int productId, Product updatedProduct)
     {
@@ -60,7 +67,7 @@ public class Inventory
         var results = new BindingList<Product>(Products.Where(p=> p.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >=0).ToList());
         return results;
     }
-    public Product? SearchProductsById(int productId) { return Products.FirstOrDefault(p => p.ProductId == productId); }
+    public static Product? SearchProductsById(int productId) { return Products.FirstOrDefault(p => p.ProductId == productId); }
     public static BindingList<Product> SearchProductsByPrice(decimal price)
     {
         //var results = new BindingList<Product>(Products.Where(p => p.Price == price).ToList());
@@ -78,12 +85,12 @@ public class Inventory
     }
     public bool DeletePart(Part part) 
     {
-        if (part.BelongsToProduct)
+        if (CanDeletePart(part)) return AllParts.Remove(part);
+        else
         {
-            MessageBox.Show("This part cannot be removed because it is associated with a product.");
+            MessageBox.Show("Cannot delete the part because it is associated with one or more products.");
             return false;
         }
-        return AllParts.Remove(part);
     }
     public void updatePart(int partId, Part updatedPart)
     {
@@ -93,13 +100,11 @@ public class Inventory
             int index = AllParts.IndexOf(part);
             AllParts[index] = updatedPart;
         }
-
     }
     public static BindingList<Part> GetAllParts()
     { 
         return AllParts;
     }
-
     public static BindingList<Part> SearchPartsByName(string name)
     {
         var results = new BindingList<Part>(AllParts.Where(p => p.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0).ToList());
@@ -117,4 +122,12 @@ public class Inventory
         return results;
     }
 
+    public static bool CanDeletePart(Part part)
+    {
+        foreach(var product in Products)
+        {
+            if (product.AssociatedParts.Contains(part)) return false;
+        }
+        return true;
+    }
 }

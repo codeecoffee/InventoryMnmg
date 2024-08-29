@@ -37,7 +37,6 @@ namespace InventoryMgmt
             //SelectedParts.DataSource = selectedProduct.AssociatedParts;
 
         }
-
         private void ProductSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.ProductNameInput.Text))
@@ -80,16 +79,13 @@ namespace InventoryMgmt
             selectedProduct.Min = min;
             selectedProduct.Max = max;
             selectedProduct.InStock = inventory;
-            selectedProduct.AssociatedParts= associatedPartsList;
+            selectedProduct.AssociatedParts = associatedPartsList;
 
-            Inventory.Instance.updateProduct(selectedProduct.ProductId,selectedProduct);
+            Inventory.Instance.updateProduct(selectedProduct.ProductId, selectedProduct);
+            this.Close();
         }
-
-
-
         private void AddPart_Click(object sender, EventArgs e)
         {
-            
             if (AllParts.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = AllParts.SelectedRows[0];
@@ -106,11 +102,10 @@ namespace InventoryMgmt
                 }
 
             }
-           
+            else { MessageBox.Show("Select a part to add"); }
 
 
         }
-
         private void ProductCancel_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Are you sure you want to cancel? Unsaved changes will be lost.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -118,6 +113,46 @@ namespace InventoryMgmt
             {
                 this.Close();
             }
+        }
+        private void SearchBtt_Click(object sender, EventArgs e)
+        {
+            string name = SearchBoxInput.Text;
+            int.TryParse(SearchBoxInput.Text, out int id);
+            decimal.TryParse(SearchBoxInput.Text, out decimal price);
+
+            BindingList<Part> partResults = new BindingList<Part>();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                partResults = Inventory.SearchPartsByName(name);
+            }
+            else if (id > 0)
+            {
+                var part = Inventory.SearchPartsById(id);
+                if (part != null) partResults.Add(part);
+            }
+            else if (price > 0) partResults = Inventory.SearchPartsByPrice(price);
+
+            if (partResults.Count > 0) AllParts.DataSource = partResults;
+            else if (partResults.Count == 0) MessageBox.Show("No results found.");
+
+            //if (SearchBoxInput.Text == null) AllParts.DataSource = associatedPartsList;
+
+        }
+        private void DeletePart_Click(object sender, EventArgs e)
+        {
+            if (SelectedParts.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
+                Part selectedPart = (Part)selectedRow.DataBoundItem;
+                associatedPartsList.Remove(selectedPart);
+
+            }
+        }
+
+        private void SearchBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchBoxInput.Text == "") AllParts.DataSource = Inventory.GetAllParts();
         }
     }
 }

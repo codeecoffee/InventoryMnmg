@@ -44,6 +44,7 @@
             inStockDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             minDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             maxDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            BelongsToProduct = new DataGridViewCheckBoxColumn();
             outsourcedPartBindingSource = new BindingSource(components);
             PartsSearchInput = new TextBox();
             PartsSearchBtt = new Button();
@@ -88,7 +89,7 @@
             label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(12, 41);
             label2.Name = "label2";
-            label2.Size = new Size(618, 54);
+            label2.Size = new Size(519, 46);
             label2.TabIndex = 1;
             label2.Text = "Inventory Management System";
             // 
@@ -125,7 +126,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             PartsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             PartsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn });
+            PartsGridView.Columns.AddRange(new DataGridViewColumn[] { partIDDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, inStockDataGridViewTextBoxColumn, minDataGridViewTextBoxColumn, maxDataGridViewTextBoxColumn, BelongsToProduct });
             PartsGridView.DataSource = outsourcedPartBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -135,6 +136,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             PartsGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            PartsGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
             PartsGridView.Location = new Point(0, 94);
             PartsGridView.Name = "PartsGridView";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -197,6 +199,15 @@
             maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
             maxDataGridViewTextBoxColumn.Width = 40;
             // 
+            // BelongsToProduct
+            // 
+            BelongsToProduct.DataPropertyName = "BelongsToProduct";
+            BelongsToProduct.HeaderText = "Associated to Product";
+            BelongsToProduct.MinimumWidth = 6;
+            BelongsToProduct.Name = "BelongsToProduct";
+            BelongsToProduct.ReadOnly = true;
+            BelongsToProduct.Width = 125;
+            // 
             // outsourcedPartBindingSource
             // 
             outsourcedPartBindingSource.DataSource = typeof(OutsourcedPart);
@@ -205,8 +216,9 @@
             // 
             PartsSearchInput.Location = new Point(371, 29);
             PartsSearchInput.Name = "PartsSearchInput";
-            PartsSearchInput.Size = new Size(200, 51);
+            PartsSearchInput.Size = new Size(200, 43);
             PartsSearchInput.TabIndex = 2;
+            PartsSearchInput.TextChanged += PartsSearchInput_TextChanged;
             // 
             // PartsSearchBtt
             // 
@@ -217,6 +229,7 @@
             PartsSearchBtt.TabIndex = 1;
             PartsSearchBtt.Text = "Search";
             PartsSearchBtt.UseVisualStyleBackColor = true;
+            PartsSearchBtt.Click += PartsSearchBtt_Click;
             // 
             // ProductsBox
             // 
@@ -236,8 +249,9 @@
             // 
             ProductsSearchInput.Location = new Point(552, 31);
             ProductsSearchInput.Name = "ProductsSearchInput";
-            ProductsSearchInput.Size = new Size(205, 51);
+            ProductsSearchInput.Size = new Size(205, 43);
             ProductsSearchInput.TabIndex = 4;
+            ProductsSearchInput.TextChanged += ProductsSearchInput_TextChanged;
             // 
             // ProductsGridView
             // 
@@ -334,6 +348,7 @@
             ProductsSearchBtt.TabIndex = 3;
             ProductsSearchBtt.Text = "Search";
             ProductsSearchBtt.UseVisualStyleBackColor = true;
+            ProductsSearchBtt.Click += ProductsSearchBtt_Click;
             // 
             // PartsBttBox
             // 
@@ -479,7 +494,7 @@
             // 
             // MainScreen
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1425, 729);
             Controls.Add(MainScreenPanel);
@@ -533,17 +548,18 @@
         private DataGridView PartsGridView;
         private BindingSource outsourcedPartBindingSource;
         private BindingSource inHousePartBindingSource;
-        private DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn belongsToProductDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn ProductId;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn minDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn partIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn minDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn maxDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn BelongsToProduct;
     }
 }

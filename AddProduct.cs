@@ -48,6 +48,7 @@ namespace InventoryMgmt
                     MessageBox.Show("This part is already associated with the product");
                 }
             }
+            else { MessageBox.Show("Select a part to add"); }
         }
 
         private void PartCancel_Click(object sender, EventArgs e)
@@ -80,13 +81,13 @@ namespace InventoryMgmt
                 MessageBox.Show("Please fill out the Product name");
                 return;
             }
-            if (!associatedPartsList.Any()) 
+            if (!associatedPartsList.Any())
             {
                 MessageBox.Show("You must have at least one part associate to this product");
                 return;
             }
             bool isValid = InputValidator.ValidateNumFields(
-                (ProductInventoryInput.Text,"Inventory"),
+                (ProductInventoryInput.Text, "Inventory"),
                 (ProductPriceInput.Text, "Price"),
                 (ProductMinInput.Text, "Min"),
                 (ProductMaxInput.Text, "Max"));
@@ -96,14 +97,14 @@ namespace InventoryMgmt
                 MessageBox.Show("Min value must not be greater than Max value");
                 return;
             }
-            if (int.Parse(ProductInventoryInput.Text) > int.Parse(ProductMaxInput.Text) 
+            if (int.Parse(ProductInventoryInput.Text) > int.Parse(ProductMaxInput.Text)
                 || int.Parse(ProductInventoryInput.Text) < int.Parse(ProductMinInput.Text))
             {
                 MessageBox.Show("Inventory must be between Min and Max values.");
                 return;
             }
 
-            
+
             string name = ProductNameInput.Text;
             int inventory = int.Parse(ProductInventoryInput.Text); //instock
             decimal price = decimal.Parse(ProductPriceInput.Text);
@@ -111,10 +112,39 @@ namespace InventoryMgmt
             int min = int.Parse(ProductMinInput.Text);
 
 
-            Product newProduct = new Product(associatedPartsList, newProductId, name, price, inventory,min, max);
+            Product newProduct = new Product(associatedPartsList, newProductId, name, price, inventory, min, max);
 
             Inventory.Instance.AddProduct(newProduct);
             this.Close();
+
+        }
+
+        private void SearchBoxInput_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchBoxInput.Text == "") AllParts.DataSource = Inventory.GetAllParts();
+        }
+
+        private void SearchBtt_Click(object sender, EventArgs e)
+        {
+            string name = SearchBoxInput.Text;
+            int.TryParse(SearchBoxInput.Text, out int id);
+            decimal.TryParse(SearchBoxInput.Text, out decimal price);
+
+            BindingList<Part> partResults = new BindingList<Part>();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                partResults = Inventory.SearchPartsByName(name);
+            }
+            else if (id > 0)
+            {
+                var part = Inventory.SearchPartsById(id);
+                if (part != null) partResults.Add(part);
+            }
+            else if (price > 0) partResults = Inventory.SearchPartsByPrice(price);
+
+            if (partResults.Count > 0) AllParts.DataSource = partResults;
+            else if (partResults.Count == 0) MessageBox.Show("No results found.");
 
         }
     }
