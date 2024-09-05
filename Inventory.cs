@@ -14,7 +14,6 @@ public class Inventory
     public static BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
 
     
-
     public static int GeneratePartId()
     { 
         return partIdCounter = partIdCounter + 1; 
