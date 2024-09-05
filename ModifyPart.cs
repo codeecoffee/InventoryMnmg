@@ -71,22 +71,23 @@ namespace InventoryMgmt
 
             if (PartInhouse.Checked && selectedPart is InHousePart inHousePart)
             {
-                Console.WriteLine("if check -PartInhouse- reached");
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
                 if (!machineIdValid)
                 {
                     MessageBox.Show("Please enter a valid Machine Id");
                 }
-                inHousePart.Name = name;
-                inHousePart.InStock = inventory;
-                inHousePart.Price = price;
-                inHousePart.Max = max;
-                inHousePart.Min = min;
-                inHousePart.MachineId = machineId;
+                else
+                {
+                    inHousePart.Name = name;
+                    inHousePart.InStock = inventory;
+                    inHousePart.Price = price;
+                    inHousePart.Max = max;
+                    inHousePart.Min = min;
+                    inHousePart.MachineId = machineId;
+                }
             }
             else if (PartOutsourced.Checked && selectedPart is OutsourcedPart outsourcedPart)
             {
-                Console.WriteLine("if check -Outsource- reached");
 
                 string companyName = PartNameInput.Text;
 
@@ -97,11 +98,11 @@ namespace InventoryMgmt
                 outsourcedPart.Price = price;
                 outsourcedPart.CompanyName = companyName;
             }
-            else
-            {
-                MessageBox.Show("Please select either In-house or Outsourced");
-                return;
-            }
+            //else
+            //{
+            //    MessageBox.Show("Please select either In-house or Outsourced");
+            //    return;
+            //}
 
             Inventory.Instance.updatePart(selectedPart.PartID, selectedPart);
             this.Close();
