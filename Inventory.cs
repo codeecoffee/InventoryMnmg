@@ -4,6 +4,8 @@ using System.Linq;
 
 public class Inventory
 {
+    private static int partIdCounter = 0;
+    private static int productIdCounter = 0;
     private static Inventory _instance = new Inventory();
     private Inventory() { }
     public static Inventory Instance
@@ -11,16 +13,15 @@ public class Inventory
     public static BindingList<Product> Products { get; set; } = new BindingList<Product>();
     public static BindingList<Part> AllParts { get; set; } = new BindingList<Part>();
 
-    private static int partIdCounter = 0;
-    private static int productIdCounter = 0;
+    
 
     public static int GeneratePartId()
     { 
-        return partIdCounter++; 
+        return partIdCounter = partIdCounter + 1; 
     }
     public static int GenerateProductId()
     {
-        return productIdCounter++;
+        return productIdCounter = productIdCounter + 1;
     }
     public Product? lookupProduct(int productId) 
     {

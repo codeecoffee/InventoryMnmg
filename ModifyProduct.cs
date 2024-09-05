@@ -41,7 +41,7 @@ namespace InventoryMgmt
         {
             if (string.IsNullOrWhiteSpace(this.ProductNameInput.Text))
             {
-                MessageBox.Show("Please fill out the Part name");
+                MessageBox.Show("Please fill out the Product name");
                 return;
             }
             bool isValid = InputValidator.ValidateNumFields(
@@ -68,11 +68,11 @@ namespace InventoryMgmt
                 MessageBox.Show("Inventory must be between Min and Max values.");
                 return;
             }
-            if (!associatedPartsList.Any())
-            {
-                MessageBox.Show("You must have at least one part associate to this product");
-                return;
-            }
+            //if (!associatedPartsList.Any())
+            //{
+            //    MessageBox.Show("You must have at least one part associate to this product");
+            //    return;
+            //}
             //Product newProduct = new Product(associatedPartsList,newProduct);
             selectedProduct.Name = name;
             selectedProduct.Price = price;
@@ -141,15 +141,18 @@ namespace InventoryMgmt
         }
         private void DeletePart_Click(object sender, EventArgs e)
         {
-            if (SelectedParts.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
-                Part selectedPart = (Part)selectedRow.DataBoundItem;
-                associatedPartsList.Remove(selectedPart);
+            var result = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes) { 
+                if (SelectedParts.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
+                    Part selectedPart = (Part)selectedRow.DataBoundItem;
+                    associatedPartsList.Remove(selectedPart);
 
+                }
+            
             }
         }
-
         private void SearchBoxInput_TextChanged(object sender, EventArgs e)
         {
             if (SearchBoxInput.Text == "") AllParts.DataSource = Inventory.GetAllParts();

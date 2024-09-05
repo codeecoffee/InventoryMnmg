@@ -62,15 +62,25 @@ namespace InventoryMgmt
 
         private void DeletePart_Click(object sender, EventArgs e)
         {
-
-            if (SelectedParts.SelectedRows.Count > 0)
+            var result = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
-                Part selectedPart = (Part)selectedRow.DataBoundItem;
+                if (SelectedParts.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
+                    Part selectedPart = (Part)selectedRow.DataBoundItem;
+                    associatedPartsList.Remove(selectedPart);
 
-                associatedPartsList.Remove(selectedPart);
-
+                }
             }
+            //if (SelectedParts.SelectedRows.Count > 0)
+            //{
+            //    DataGridViewRow selectedRow = SelectedParts.SelectedRows[0];
+            //    Part selectedPart = (Part)selectedRow.DataBoundItem;
+
+            //    associatedPartsList.Remove(selectedPart);
+
+            //}
         }
 
         private void PartSave_Click(object sender, EventArgs e)
@@ -81,11 +91,11 @@ namespace InventoryMgmt
                 MessageBox.Show("Please fill out the Product name");
                 return;
             }
-            if (!associatedPartsList.Any())
-            {
-                MessageBox.Show("You must have at least one part associate to this product");
-                return;
-            }
+            //if (!associatedPartsList.Any())
+            //{
+            //    MessageBox.Show("You must have at least one part associate to this product");
+            //    return;
+            //}
             bool isValid = InputValidator.ValidateNumFields(
                 (ProductInventoryInput.Text, "Inventory"),
                 (ProductPriceInput.Text, "Price"),

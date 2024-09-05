@@ -53,11 +53,13 @@ namespace InventoryMgmt
             (PartMinInput.Text, "Min"));
             if (!isValid) return;
 
+    
             string name = PartNameInput.Text;
             int inventory = int.Parse(PartInventoryInput.Text); //instock
             decimal price = decimal.Parse(PartPriceInput.Text);
             int max = int.Parse(PartMaxInput.Text);
             int min = int.Parse(PartMinInput.Text);
+
             if (min > max)
             {
                 MessageBox.Show("Min value cannot be greater than Max value");
@@ -69,42 +71,75 @@ namespace InventoryMgmt
                 return;
             }
 
-            if (PartInhouse.Checked && selectedPart is InHousePart inHousePart)
+            Part updatedPart = null;  // This will hold the new or modified part
+
+            if (PartInhouse.Checked)
             {
                 bool machineIdValid = int.TryParse(PartMachineIdOrCompanyInput.Text, out int machineId);
                 if (!machineIdValid)
                 {
                     MessageBox.Show("Please enter a valid Machine Id");
+                    return;
                 }
-                else
+
+                if (selectedPart is InHousePart inHousePart)
                 {
+                    // Modify existing in-house part
                     inHousePart.Name = name;
                     inHousePart.InStock = inventory;
                     inHousePart.Price = price;
                     inHousePart.Max = max;
                     inHousePart.Min = min;
                     inHousePart.MachineId = machineId;
+                    updatedPart = inHousePart;
+                }
+                else
+                {
+                    // Create a new InHousePart and replace the existing OutsourcedPart
+                    updatedPart = new InHousePart(
+                        selectedPart.PartID,
+                        name,
+                        price,
+                        inventory,
+                        min,
+                        max,
+                        machineId
+                    );
                 }
             }
-            else if (PartOutsourced.Checked && selectedPart is OutsourcedPart outsourcedPart)
+            else if (PartOutsourced.Checked)
             {
+                string companyName = PartMachineIdOrCompanyInput.Text;
 
-                string companyName = PartNameInput.Text;
-
-                outsourcedPart.CompanyName = companyName;
-                outsourcedPart.Price = price;
-                outsourcedPart.Max = max;
-                outsourcedPart.Min = min;
-                outsourcedPart.Price = price;
-                outsourcedPart.CompanyName = companyName;
+                if (selectedPart is OutsourcedPart outsourcedPart)
+                {
+                    // Modify existing outsourced part
+                    outsourcedPart.Name = name;
+                    outsourcedPart.InStock = inventory;
+                    outsourcedPart.Price = price;
+                    outsourcedPart.Max = max;
+                    outsourcedPart.Min = min;
+                    outsourcedPart.CompanyName = companyName;
+                    updatedPart = outsourcedPart;
+                }
+                else
+                {
+                    // Create a new OutsourcedPart and replace the existing InHousePart
+                    updatedPart = new OutsourcedPart(
+                        selectedPart.PartID,
+                        name,
+                        price,
+                        inventory,
+                        min,
+                        max,
+                        companyName
+                    );
+                }
             }
-            //else
-            //{
-            //    MessageBox.Show("Please select either In-house or Outsourced");
-            //    return;
-            //}
 
-            Inventory.Instance.updatePart(selectedPart.PartID, selectedPart);
+            // Replace the selected part in the inventory with the updated part
+            Inventory.Instance.updatePart(selectedPart.PartID, updatedPart);
+
             this.Close();
 
         }
